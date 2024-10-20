@@ -1,2 +1,4 @@
 # JavaScriptKit
-The JavaScriptKit helps JavaScript support by macOS and iOS
+
+The JavaScriptKit framework helps to support 1JavaScript by macOS and iOS.
+
