@@ -9,8 +9,6 @@
 /* Begin PBXBuildFile section */
 		05E0318E2CC5457800ABBA88 /* KSValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05E0318D2CC5457800ABBA88 /* KSValue.swift */; };
 		05E0318F2CC5457800ABBA88 /* KSValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05E0318D2CC5457800ABBA88 /* KSValue.swift */; };
-		05E031AA2CC54DD900ABBA88 /* MultiUIKit.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 05E031A92CC54DD900ABBA88 /* MultiUIKit.xcframework */; };
-		05E031AB2CC54DD900ABBA88 /* MultiUIKit.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 05E031A92CC54DD900ABBA88 /* MultiUIKit.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		05E031B42CC551D900ABBA88 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05E031B32CC551D900ABBA88 /* main.swift */; };
 		05E031BC2CC5529D00ABBA88 /* JavaScriptKit.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 05E031BB2CC5529D00ABBA88 /* JavaScriptKit.xcframework */; };
 		05E031BF2CC554F200ABBA88 /* JavaScriptKit.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 05E031BB2CC5529D00ABBA88 /* JavaScriptKit.xcframework */; };
@@ -48,7 +46,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				05E031AB2CC54DD900ABBA88 /* MultiUIKit.xcframework in Embed Frameworks */,
 				05E031C02CC554F200ABBA88 /* JavaScriptKit.xcframework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
@@ -131,7 +128,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				05E031AA2CC54DD900ABBA88 /* MultiUIKit.xcframework in Frameworks */,
 				05E031BF2CC554F200ABBA88 /* JavaScriptKit.xcframework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
