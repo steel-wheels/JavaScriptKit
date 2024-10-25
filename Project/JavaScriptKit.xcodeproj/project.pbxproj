@@ -7,6 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		053EE3F12CC7EBDD009381D5 /* MICharacter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 053EE3F02CC7EBDD009381D5 /* MICharacter.swift */; };
+		053EE3F22CC7EBDD009381D5 /* MICharacter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 053EE3F02CC7EBDD009381D5 /* MICharacter.swift */; };
+		053EE3F42CC7F511009381D5 /* KSError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 053EE3F32CC7F511009381D5 /* KSError.swift */; };
+		053EE3F52CC7F511009381D5 /* KSError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 053EE3F32CC7F511009381D5 /* KSError.swift */; };
+		05945AD02CC68C0A00FADB59 /* KSStringStream.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05945ACF2CC68C0A00FADB59 /* KSStringStream.swift */; };
+		05945AD12CC68C0A00FADB59 /* KSStringStream.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05945ACF2CC68C0A00FADB59 /* KSStringStream.swift */; };
+		05D1A3E92CC92D7B003DF805 /* data.json in CopyFiles */ = {isa = PBXBuildFile; fileRef = 05D1A3E82CC92D68003DF805 /* data.json */; };
+		05D1A3EB2CC92DDD003DF805 /* UTStringStream.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05D1A3EA2CC92DDD003DF805 /* UTStringStream.swift */; };
+		05D1A3EF2CCA8D39003DF805 /* KSToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05D1A3EE2CCA8D39003DF805 /* KSToken.swift */; };
+		05D1A3F02CCA8D39003DF805 /* KSToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05D1A3EE2CCA8D39003DF805 /* KSToken.swift */; };
 		05E0318E2CC5457800ABBA88 /* KSValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05E0318D2CC5457800ABBA88 /* KSValue.swift */; };
 		05E0318F2CC5457800ABBA88 /* KSValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05E0318D2CC5457800ABBA88 /* KSValue.swift */; };
 		05E031B42CC551D900ABBA88 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05E031B32CC551D900ABBA88 /* main.swift */; };
@@ -53,17 +63,24 @@
 		};
 		05E031AF2CC551D900ABBA88 /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = /usr/share/man/man1/;
-			dstSubfolderSpec = 0;
+			buildActionMask = 12;
+			dstPath = "";
+			dstSubfolderSpec = 16;
 			files = (
+				05D1A3E92CC92D7B003DF805 /* data.json in CopyFiles */,
 			);
-			runOnlyForDeploymentPostprocessing = 1;
+			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		0524A5452CC53B92001356A5 /* JavaScriptKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = JavaScriptKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		053EE3F02CC7EBDD009381D5 /* MICharacter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MICharacter.swift; sourceTree = "<group>"; };
+		053EE3F32CC7F511009381D5 /* KSError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KSError.swift; sourceTree = "<group>"; };
+		05945ACF2CC68C0A00FADB59 /* KSStringStream.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KSStringStream.swift; sourceTree = "<group>"; };
+		05D1A3E82CC92D68003DF805 /* data.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = data.json; sourceTree = "<group>"; };
+		05D1A3EA2CC92DDD003DF805 /* UTStringStream.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UTStringStream.swift; sourceTree = "<group>"; };
+		05D1A3EE2CCA8D39003DF805 /* KSToken.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KSToken.swift; sourceTree = "<group>"; };
 		05E031822CC53D9F00ABBA88 /* JavaScriptKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = JavaScriptKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		05E0318D2CC5457800ABBA88 /* KSValue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KSValue.swift; sourceTree = "<group>"; };
 		05E031A42CC54DA800ABBA88 /* JavaScriptKit.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = JavaScriptKit.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -178,6 +195,10 @@
 		05E0318C2CC5455700ABBA88 /* Data */ = {
 			isa = PBXGroup;
 			children = (
+				053EE3F02CC7EBDD009381D5 /* MICharacter.swift */,
+				053EE3F32CC7F511009381D5 /* KSError.swift */,
+				05945ACF2CC68C0A00FADB59 /* KSStringStream.swift */,
+				05D1A3EE2CCA8D39003DF805 /* KSToken.swift */,
 				05E0318D2CC5457800ABBA88 /* KSValue.swift */,
 			);
 			path = Data;
@@ -196,6 +217,8 @@
 			isa = PBXGroup;
 			children = (
 				05E031B32CC551D900ABBA88 /* main.swift */,
+				05D1A3EA2CC92DDD003DF805 /* UTStringStream.swift */,
+				05D1A3E82CC92D68003DF805 /* data.json */,
 			);
 			name = Tests;
 			path = ../Tests;
@@ -407,7 +430,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				053EE3F52CC7F511009381D5 /* KSError.swift in Sources */,
+				05945AD02CC68C0A00FADB59 /* KSStringStream.swift in Sources */,
 				05E0318E2CC5457800ABBA88 /* KSValue.swift in Sources */,
+				053EE3F22CC7EBDD009381D5 /* MICharacter.swift in Sources */,
+				05D1A3F02CCA8D39003DF805 /* KSToken.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -415,7 +442,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				053EE3F42CC7F511009381D5 /* KSError.swift in Sources */,
+				05945AD12CC68C0A00FADB59 /* KSStringStream.swift in Sources */,
 				05E0318F2CC5457800ABBA88 /* KSValue.swift in Sources */,
+				053EE3F12CC7EBDD009381D5 /* MICharacter.swift in Sources */,
+				05D1A3EF2CCA8D39003DF805 /* KSToken.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -431,6 +462,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				05E031B42CC551D900ABBA88 /* main.swift in Sources */,
+				05D1A3EB2CC92DDD003DF805 /* UTStringStream.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -801,10 +833,12 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = TR2DNF3P93;
 				ENABLE_HARDENED_RUNTIME = YES;
+				GCC_OPTIMIZATION_LEVEL = 1;
 				INSTALL_PATH = ../Product/bin;
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/JavaScriptKit.bundle/Contents/Frameworks/";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 6.0;
 			};
 			name = Debug;
 		};
@@ -814,10 +848,12 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = TR2DNF3P93;
 				ENABLE_HARDENED_RUNTIME = YES;
+				GCC_OPTIMIZATION_LEVEL = 1;
 				INSTALL_PATH = ../Product/bin;
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/JavaScriptKit.bundle/Contents/Frameworks/";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 6.0;
 			};
 			name = Release;
 		};

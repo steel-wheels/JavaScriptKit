@@ -10,3 +10,11 @@ import Foundation
 
 print("Hello, World!")
 
+let result0 = testStringStream()
+
+if result0 {
+        print("SUMMARY: OK")
+} else {
+        print("SUMMARY: Error")
+}
+
