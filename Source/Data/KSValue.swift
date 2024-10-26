@@ -25,6 +25,25 @@ public indirect enum KSValueType {
                 }
         }}
         
+        public func toString() -> String {
+                let result: String
+                switch self {
+                case .boolean:          result = "boolean"
+                case .uint:             result = "uint"
+                case .int:              result = "int"
+                case .float:            result = "float"
+                case .string:           result = "string"
+                case .array(let etype):
+                        result = etype.toString() + "[]"
+                case .dictionary(let etype):
+                        result = "{ [key: string]: " + etype.toString() + "}"
+                case .interface(let name, _):
+                        let intf = name ?? "null"
+                        result = "{ interface:\(intf) }"
+                }
+                return result
+        }
+
         public static func isSame(type0 t0: KSValueType, type1 t1: KSValueType) -> Bool {
                 var result: Bool = false
                 switch t0 {
@@ -260,14 +279,14 @@ public struct KSValue {
                 return result
         }
         
-        public func toString() -> String {
-                let result: String
+        public func toString(withType wtype: Bool) -> String {
+                let valstr: String
                 switch self.value {
-                case .boolean(let value):       result = "\(value)"
-                case .uint(let value):          result = "\(value)"
-                case .int(let value):           result = "\(value)"
-                case .float(let value):         result = "\(value)"
-                case .string(let value):        result = value
+                case .boolean(let value):       valstr = "\(value)"
+                case .uint(let value):          valstr = "\(value)"
+                case .int(let value):           valstr = "\(value)"
+                case .float(let value):         valstr = "\(value)"
+                case .string(let value):        valstr = value
                 case .array(let values):
                         var is1st = true
                         var str   = "["
@@ -277,19 +296,26 @@ public struct KSValue {
                                 } else {
                                         str += ", "
                                 }
-                                str += value.toString()
+                                str += value.toString(withType: wtype)
                         }
                         str += "]"
-                        result = str
+                        valstr = str
                 case .dictionary(let values):
-                        result = KSValue.toString(ductionary: values)
+                        valstr = KSValue.toString(ductionary: values, withType: wtype)
                 case .interface(let values):
-                        result = KSValue.toString(ductionary: values)
+                        valstr = KSValue.toString(ductionary: values, withType: wtype)
+                }
+                
+                let result: String
+                if wtype {
+                        result = "(" + self.type.toString() + ") " + valstr
+                } else {
+                        result = valstr
                 }
                 return result
         }
         
-        private static func toString(ductionary dict: Dictionary<String, KSValue>) -> String {
+        private static func toString(ductionary dict: Dictionary<String, KSValue>, withType wtype: Bool) -> String {
                 var is1st = true
                 var str   = "{"
                 let keys =  dict.keys.sorted()
@@ -301,7 +327,7 @@ public struct KSValue {
                         }
                         str += key + ":"
                         if let val = dict[key] {
-                                str += val.toString()
+                                str += val.toString(withType: wtype)
                         } else {
                                 str += "?"
                         }
