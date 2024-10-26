@@ -10,9 +10,12 @@ import Foundation
 
 print("Hello, World!")
 
-let result0 = testStringStream()
+let result0 = testValue()
+let result1 = testStringStream()
 
-if result0 {
+let summary = result0 && result1
+
+if summary {
         print("SUMMARY: OK")
 } else {
         print("SUMMARY: Error")

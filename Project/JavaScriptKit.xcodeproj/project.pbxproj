@@ -17,6 +17,9 @@
 		05D1A3EB2CC92DDD003DF805 /* UTStringStream.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05D1A3EA2CC92DDD003DF805 /* UTStringStream.swift */; };
 		05D1A3EF2CCA8D39003DF805 /* KSToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05D1A3EE2CCA8D39003DF805 /* KSToken.swift */; };
 		05D1A3F02CCA8D39003DF805 /* KSToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05D1A3EE2CCA8D39003DF805 /* KSToken.swift */; };
+		05D1A3F32CCBE2C4003DF805 /* KSJson.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05D1A3F22CCBE2C4003DF805 /* KSJson.swift */; };
+		05D1A3F42CCBE2C4003DF805 /* KSJson.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05D1A3F22CCBE2C4003DF805 /* KSJson.swift */; };
+		05D1A3F62CCCF29C003DF805 /* UTValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05D1A3F52CCCF29C003DF805 /* UTValue.swift */; };
 		05E0318E2CC5457800ABBA88 /* KSValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05E0318D2CC5457800ABBA88 /* KSValue.swift */; };
 		05E0318F2CC5457800ABBA88 /* KSValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05E0318D2CC5457800ABBA88 /* KSValue.swift */; };
 		05E031B42CC551D900ABBA88 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05E031B32CC551D900ABBA88 /* main.swift */; };
@@ -81,6 +84,8 @@
 		05D1A3E82CC92D68003DF805 /* data.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = data.json; sourceTree = "<group>"; };
 		05D1A3EA2CC92DDD003DF805 /* UTStringStream.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UTStringStream.swift; sourceTree = "<group>"; };
 		05D1A3EE2CCA8D39003DF805 /* KSToken.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KSToken.swift; sourceTree = "<group>"; };
+		05D1A3F22CCBE2C4003DF805 /* KSJson.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KSJson.swift; sourceTree = "<group>"; };
+		05D1A3F52CCCF29C003DF805 /* UTValue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UTValue.swift; sourceTree = "<group>"; };
 		05E031822CC53D9F00ABBA88 /* JavaScriptKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = JavaScriptKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		05E0318D2CC5457800ABBA88 /* KSValue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KSValue.swift; sourceTree = "<group>"; };
 		05E031A42CC54DA800ABBA88 /* JavaScriptKit.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = JavaScriptKit.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -183,10 +188,20 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		05D1A3F72CCD08E5003DF805 /* Parser */ = {
+			isa = PBXGroup;
+			children = (
+				05D1A3F22CCBE2C4003DF805 /* KSJson.swift */,
+				05D1A3EE2CCA8D39003DF805 /* KSToken.swift */,
+			);
+			path = Parser;
+			sourceTree = "<group>";
+		};
 		05E0317C2CC53BFE00ABBA88 /* Source */ = {
 			isa = PBXGroup;
 			children = (
 				05E0318C2CC5455700ABBA88 /* Data */,
+				05D1A3F72CCD08E5003DF805 /* Parser */,
 			);
 			name = Source;
 			path = ../Source;
@@ -198,7 +213,6 @@
 				053EE3F02CC7EBDD009381D5 /* MICharacter.swift */,
 				053EE3F32CC7F511009381D5 /* KSError.swift */,
 				05945ACF2CC68C0A00FADB59 /* KSStringStream.swift */,
-				05D1A3EE2CCA8D39003DF805 /* KSToken.swift */,
 				05E0318D2CC5457800ABBA88 /* KSValue.swift */,
 			);
 			path = Data;
@@ -218,6 +232,7 @@
 			children = (
 				05E031B32CC551D900ABBA88 /* main.swift */,
 				05D1A3EA2CC92DDD003DF805 /* UTStringStream.swift */,
+				05D1A3F52CCCF29C003DF805 /* UTValue.swift */,
 				05D1A3E82CC92D68003DF805 /* data.json */,
 			);
 			name = Tests;
@@ -431,6 +446,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				053EE3F52CC7F511009381D5 /* KSError.swift in Sources */,
+				05D1A3F42CCBE2C4003DF805 /* KSJson.swift in Sources */,
 				05945AD02CC68C0A00FADB59 /* KSStringStream.swift in Sources */,
 				05E0318E2CC5457800ABBA88 /* KSValue.swift in Sources */,
 				053EE3F22CC7EBDD009381D5 /* MICharacter.swift in Sources */,
@@ -443,6 +459,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				053EE3F42CC7F511009381D5 /* KSError.swift in Sources */,
+				05D1A3F32CCBE2C4003DF805 /* KSJson.swift in Sources */,
 				05945AD12CC68C0A00FADB59 /* KSStringStream.swift in Sources */,
 				05E0318F2CC5457800ABBA88 /* KSValue.swift in Sources */,
 				053EE3F12CC7EBDD009381D5 /* MICharacter.swift in Sources */,
@@ -462,6 +479,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				05E031B42CC551D900ABBA88 /* main.swift in Sources */,
+				05D1A3F62CCCF29C003DF805 /* UTValue.swift in Sources */,
 				05D1A3EB2CC92DDD003DF805 /* UTStringStream.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

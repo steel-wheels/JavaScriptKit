@@ -25,8 +25,8 @@ public class KSError
                 return error(errorCode: ecode, message: newmsg)
         }
         
-        public static func parseError(message msg: String) -> NSError {
-                return error(errorCode: ErrorCode.parseError, message: msg)
+        public static func parseError(message msg: String, line ln: Int) -> NSError {
+                return error(errorCode: ErrorCode.parseError, message: msg + " at line \(ln)")
         }
         
         public static func errorToString(error err: NSError) -> String {

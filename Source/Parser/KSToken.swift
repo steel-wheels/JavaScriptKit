@@ -5,16 +5,15 @@
  *   Copyright (C) 2024 Steel Wheels Project
  */
 
-
 import Foundation
 
 public enum KSTokenValue {
         case symbol(Character)
         case identifier(String)
         case bool(Bool)
-        case uInt(UInt)
+        case uint(UInt)
         case int(Int)
-        case double(Double)
+        case float(Double)
         case string(String)
         case text(String)
         case comment(String)
@@ -41,7 +40,7 @@ public struct KSToken
         
         public func uIntValue() -> UInt? {
                 switch self.value {
-                case .uInt(let val):
+                case .uint(let val):
                         return val
                 default:
                         return nil
@@ -54,14 +53,19 @@ public struct KSToken
                 case .symbol(let sym):          result = "symbol(\(sym))"
                 case .identifier(let ident):    result = "identifier(\(ident))"
                 case .bool(let val):            result = "bool(\(val))"
-                case .uInt(let val):            result = "uInt(\(val))"
+                case .uint(let val):            result = "uint(\(val))"
                 case .int(let val):             result = "int(\(val))"
-                case .double(let val):          result = "double(\(val))"
+                case .float(let val):           result = "float(\(val))"
                 case .string(let str):          result = "string(\(str))"
                 case .text(let str):            result = "text(\(str))"
                 case .comment(let str):         result = "comment(\(str))"
                 }
                 return result
+        }
+        
+        public static func lastLine(tokens tkns: Array<KSToken>) -> Int {
+                let count = tkns.count
+                return count > 0 ? tkns[count - 1].lineNo : 1
         }
 }
 
@@ -121,7 +125,7 @@ public class KSTokenizer
         
         private static func parseHexToken(stream strm: KSInputStream, lineNo line: inout Int) -> Result<KSToken?, NSError> {
                 guard let c = strm.getc() else {
-                        return .success(KSToken(.uInt(0), at: line))
+                        return .success(KSToken(.uint(0), at: line))
                 }
                 let result:Result<KSToken?, NSError>
                 switch c {
@@ -138,13 +142,13 @@ public class KSTokenizer
                                 }
                         }
                         if valid {
-                                result = .success(KSToken(.uInt(value), at: line))
+                                result = .success(KSToken(.uint(value), at: line))
                         } else {
-                                let err = KSError.parseError(message: "Invalid hex value at line \(line)")
+                                let err = KSError.parseError(message: "Invalid hex value at line", line: line)
                                 result = .failure(err)
                         }
                 default:
-                        result = .success(KSToken(.uInt(0), at: line))
+                        result = .success(KSToken(.uint(0), at: line))
                 }
                 return result
         }
@@ -159,7 +163,7 @@ public class KSTokenizer
                                 break
                         }
                 }
-                return .success(KSToken(.uInt(result), at: line))
+                return .success(KSToken(.uint(result), at: line))
         }
         
         private static func parseIdentifierToken(firstChar fc: Character, stream strm: KSInputStream, lineNo line: inout Int) -> Result<KSToken?, NSError> {
@@ -178,7 +182,6 @@ public class KSTokenizer
         private static func parseStringToken(stream strm: KSInputStream, lineNo line: inout Int) -> Result<KSToken?, NSError> {
                 var result: String = ""
                 var closed = false
-                let ln     = line
                 loop: while let c = strm.getc() {
                         switch c {
                         case "\"":
@@ -198,7 +201,7 @@ public class KSTokenizer
                 if closed {
                         return .success(KSToken(.string(result), at: line))
                 } else {
-                        let err = KSError.parseError(message: "The string is not closed at line \(ln)")
+                        let err = KSError.parseError(message: "The string is not closed", line: line)
                         return .failure(err)
                 }
         }
@@ -273,7 +276,7 @@ public class KSTokenizer
                                 return .success("\\" + String(c))
                         }
                 } else {
-                        let err = KSError.parseError(message: "Invalid escape sequence at line \(line)")
+                        let err = KSError.parseError(message: "Invalid escape sequence", line: line)
                         return .failure(err)
                 }
         }
@@ -317,7 +320,7 @@ public class KSTokenizer
                         if src[i].isSymbol(c: "-") {
                                 if i+1 < count {
                                         switch src[i+1].value {
-                                        case .uInt(let val):
+                                        case .uint(let val):
                                                 result.append(KSToken(.int(-Int(val)), at: src[i].lineNo))
                                                 doskip = 1
                                         case .int(let val):
@@ -347,12 +350,12 @@ public class KSTokenizer
                                 continue
                         }
                         switch src[i].value {
-                        case .uInt(let val):
+                        case .uint(let val):
                                 if i + 2 < count {
                                         if src[i+1].isSymbol(c: "."), let fval = src[i+2].uIntValue() {
                                                 let dstr = "\(val).\(fval)"
                                                 if let dval = Double(dstr) {
-                                                        result.append(KSToken(.double(dval), at: src[i].lineNo))
+                                                        result.append(KSToken(.float(dval), at: src[i].lineNo))
                                                         doskip = 2
                                                 } else {
                                                         NSLog("Failed to convert to double: \(dstr)")
@@ -369,7 +372,7 @@ public class KSTokenizer
                                         if src[i+1].isSymbol(c: "."), let fval = src[i+2].uIntValue() {
                                                 let dstr = "\(val).\(fval)"
                                                 if let dval = Double(dstr) {
-                                                        result.append(KSToken(.double(dval), at: src[i].lineNo))
+                                                        result.append(KSToken(.float(dval), at: src[i].lineNo))
                                                         doskip = 2
                                                 } else {
                                                         NSLog("Failed to convert to double: \(dstr)")
