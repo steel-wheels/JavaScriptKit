@@ -25,6 +25,13 @@ public indirect enum KSValueType {
                 }
         }}
         
+        public var interfaceName: String? { get {
+                switch self {
+                case .interface(let name, _):   return name
+                default:                        return nil
+                }
+        }}
+
         public func toString() -> String {
                 let result: String
                 switch self {

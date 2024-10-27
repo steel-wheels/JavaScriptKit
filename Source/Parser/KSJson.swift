@@ -79,9 +79,18 @@ public class KSJsonDecoder
 
                 var members: Dictionary<String, KSValue> = [:]
                 loop: while index < count {
-                        /* get identifier */
+                        
+                        /* of "} is given, finish collect members */
+                        if let c = checkSymbol(index: &index, tokens: tokens) {
+                                if c == "}" {
+                                        index += 1
+                                        break loop
+                                }
+                        }
+                        
+                        /* get string */
                         let ident: String
-                        switch requireIdentifier(index: &index, tokens: tokens){
+                        switch requireString(index: &index, tokens: tokens){
                         case .success(let str):
                                 ident = str
                         case .failure(let err):
@@ -100,13 +109,15 @@ public class KSJsonDecoder
                         case .failure(let err):
                                 return .failure(err)
                         }
+                        
+                        /* skip "," (option) */
+                        if let c = checkSymbol(index: &index, tokens: tokens) {
+                                if c == "," {
+                                        index += 1
+                                }
+                        }
                 }
-                
-                if let err = requireSymbol(index: &index, tokens: tokens, symbol: "}") {
-                        return .failure(err)
-                } else {
-                        return .success(.interfaceValue(name: nil, values: members))
-                }
+                return .success(.interfaceValue(name: nil, values: members))
         }
         
         public static func parseArray(index: inout Int, tokens: Array<KSToken>) -> Result<KSValue, NSError> {
@@ -141,6 +152,19 @@ public class KSJsonDecoder
                                 return .failure(err)
                         }
                 }
+        }
+        
+        private static func checkSymbol(index: inout Int, tokens: Array<KSToken>) -> Character? {
+                var result: Character? = nil
+                if index < tokens.count {
+                        switch tokens[index].value {
+                        case .symbol(let sym):
+                                result = sym
+                        default:
+                                break
+                        }
+                }
+                return result
         }
         
         private static func requireSymbol(index: inout Int, tokens: Array<KSToken>, symbol expsym: Character) -> NSError? {
@@ -179,4 +203,67 @@ public class KSJsonDecoder
                         return .failure(err)
                 }
         }
+        
+        private static func requireString(index: inout Int, tokens: Array<KSToken>) -> Result<String, NSError> {
+                guard index < tokens.count else {
+                        let err = KSError.parseError(message: "String is required", line: KSToken.lastLine(tokens: tokens))
+                        return .failure(err)
+                }
+                let line = tokens[index].lineNo
+                switch tokens[index].value {
+                case .string(let str):
+                        index += 1
+                        return .success(str)
+                default:
+                        let err = KSError.parseError(message: "String is required but not given", line: line)
+                        return .failure(err)
+                }
+        }
 }
+
+public class KSJsonEncoder
+{
+        public static func encode(value val: KSValue) -> KSText {
+                let result: KSText
+                switch val.value {
+                case .boolean(_), .uint(_), .int(_), .float(_):
+                        result = KSWord(word: val.toString(withType: false))
+                case .string(let value):
+                        result = KSWord(word: "\"" + value + "\"")
+                case .array(let values):
+                        var texts: Array<KSText> = []
+                        texts.append(KSWord(word: "["))
+                        for value in values {
+                                texts.append(encode(value: value))
+                        }
+                        texts.append(KSWord(word: "]"))
+                        return texts[0].generate(from: texts)
+                case .dictionary(let values):
+                        var texts: Array<KSText> = []
+                        texts.append(KSWord(word: "{"))
+                        for (key, value) in values {
+                                texts.append(KSWord(word: key))
+                                texts.append(KSWord(word: ":"))
+                                texts.append(encode(value: value))
+                        }
+                        texts.append(KSWord(word: "}"))
+                        return texts[0].generate(from: texts)
+                case .interface(let values):
+                        var texts: Array<KSText> = []
+                        if let ifname = val.type.interfaceName {
+                                texts.append(KSWord(word: "\(ifname): {"))
+                        } else {
+                                texts.append(KSWord(word: "{"))
+                        }
+                        for (key, value) in values {
+                                texts.append(KSWord(word: key))
+                                texts.append(KSWord(word: ":"))
+                                texts.append(encode(value: value))
+                        }
+                        texts.append(KSWord(word: "}"))
+                        return texts[0].generate(from: texts)
+                }
+                return result
+        }
+}
+

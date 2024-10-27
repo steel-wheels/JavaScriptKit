@@ -20,10 +20,19 @@ public func testStringStream() -> Bool
                 //while let c = stream.getc() {
                 //        print(c)
                 //}
+                /* Tokenize */
                 switch KSTokenizer.tokenize(stream: stream) {
                 case .success(let tokens):
                         for token in tokens {
                                 print(token.toString())
+                        }
+                        /* Paese as JSON */
+                        switch KSJsonDecoder.parse(tokens: tokens) {
+                        case .success(let jsonval):
+                                let txt = KSJsonEncoder.encode(value: jsonval)
+                                print("Encoded JSON: \(txt.toString())")
+                        case .failure(let err):
+                                print("[Error] " + KSError.errorToString(error: err))
                         }
                 case .failure(let err):
                         print("[Error] " + KSError.errorToString(error: err))
