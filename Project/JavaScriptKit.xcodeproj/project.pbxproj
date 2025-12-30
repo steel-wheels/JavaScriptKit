@@ -6,8 +6,13 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		05BBE8F52F034F2C006AF77B /* ASContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05BBE8F32F034F2C006AF77B /* ASContext.swift */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXFileReference section */
 		059EB1B22F034EAA00826024 /* JavaScriptKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = JavaScriptKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		05BBE8F32F034F2C006AF77B /* ASContext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ASContext.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -32,6 +37,7 @@
 		059EB1A82F034EAA00826024 = {
 			isa = PBXGroup;
 			children = (
+				05BBE8F62F034F80006AF77B /* Source */,
 				059EB1B42F034EAA00826024 /* JavaScriptKit */,
 				059EB1B32F034EAA00826024 /* Products */,
 			);
@@ -43,6 +49,15 @@
 				059EB1B22F034EAA00826024 /* JavaScriptKit.framework */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		05BBE8F62F034F80006AF77B /* Source */ = {
+			isa = PBXGroup;
+			children = (
+				05BBE8F32F034F2C006AF77B /* ASContext.swift */,
+			);
+			name = Source;
+			path = ../Source;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -130,6 +145,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				05BBE8F52F034F2C006AF77B /* ASContext.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
