@@ -9,12 +9,15 @@
 /* Begin PBXBuildFile section */
 		05BBE8F52F034F2C006AF77B /* KSContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05BBE8F32F034F2C006AF77B /* KSContext.swift */; };
 		05FCA09E2F0351CD00F99C47 /* KSContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05BBE8F32F034F2C006AF77B /* KSContext.swift */; };
+		05FCA0A02F03777C00F99C47 /* KSGlobal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05FCA09F2F03777C00F99C47 /* KSGlobal.swift */; };
+		05FCA0A12F03777C00F99C47 /* KSGlobal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05FCA09F2F03777C00F99C47 /* KSGlobal.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		059EB1B22F034EAA00826024 /* JavaScriptKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = JavaScriptKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		05BBE8F32F034F2C006AF77B /* KSContext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KSContext.swift; sourceTree = "<group>"; };
 		05FCA0952F03515900F99C47 /* JavaScriptKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = JavaScriptKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		05FCA09F2F03777C00F99C47 /* KSGlobal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KSGlobal.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -71,6 +74,7 @@
 			isa = PBXGroup;
 			children = (
 				05BBE8F32F034F2C006AF77B /* KSContext.swift */,
+				05FCA09F2F03777C00F99C47 /* KSGlobal.swift */,
 			);
 			name = Source;
 			path = ../Source;
@@ -202,6 +206,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				05FCA0A02F03777C00F99C47 /* KSGlobal.swift in Sources */,
 				05BBE8F52F034F2C006AF77B /* KSContext.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -210,6 +215,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				05FCA0A12F03777C00F99C47 /* KSGlobal.swift in Sources */,
 				05FCA09E2F0351CD00F99C47 /* KSContext.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

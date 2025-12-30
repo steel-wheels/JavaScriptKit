@@ -10,10 +10,12 @@ import JavaScriptCore
 
 public class KSContext : JSContext
 {
+        public static let gloabalVariableName = "_global"
+
         public typealias ExceptionCallback =  (_ exception: JSValue?) -> Void
 
-        public  var exceptionCallback           : ExceptionCallback
-        private var mExceptionCount                 : Int
+        public  var exceptionCallback   : ExceptionCallback
+        private var mExceptionCount     : Int
 
         public var exceptionCount: Int { get { return mExceptionCount }}
 
@@ -35,6 +37,9 @@ public class KSContext : JSContext
                                 NSLog("[JavaScript Exception] Failed to generate exception")
                         }
                 }
+
+                /* Set global variable */
+                set(name: KSContext.gloabalVariableName, object: KSGlobal.shared)
         }
 
         public func resetExceptionCount() {
