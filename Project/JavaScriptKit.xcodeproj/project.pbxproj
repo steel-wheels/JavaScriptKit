@@ -8,16 +8,135 @@
 
 /* Begin PBXBuildFile section */
 		05BBE8F52F034F2C006AF77B /* KSContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05BBE8F32F034F2C006AF77B /* KSContext.swift */; };
+		05E717752F03BB4A0097516E /* KSValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05E717742F03BB4A0097516E /* KSValue.swift */; };
+		05E717762F03BB4A0097516E /* KSValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05E717742F03BB4A0097516E /* KSValue.swift */; };
+		05F9EF372F0567A100D72B9F /* Boot.js in CopyFiles */ = {isa = PBXBuildFile; fileRef = 05F9EF282F05673700D72B9F /* Boot.js */; };
+		05F9EF382F0567A100D72B9F /* Boot.ts in CopyFiles */ = {isa = PBXBuildFile; fileRef = 05F9EF292F05673700D72B9F /* Boot.ts */; };
+		05F9EF392F0567A100D72B9F /* Console.js in CopyFiles */ = {isa = PBXBuildFile; fileRef = 05F9EF2A2F05673700D72B9F /* Console.js */; };
+		05F9EF3A2F0567A100D72B9F /* Console.ts in CopyFiles */ = {isa = PBXBuildFile; fileRef = 05F9EF2B2F05673700D72B9F /* Console.ts */; };
+		05F9EF3B2F0567A100D72B9F /* Library.js in CopyFiles */ = {isa = PBXBuildFile; fileRef = 05F9EF2C2F05673700D72B9F /* Library.js */; };
+		05F9EF3C2F0567A100D72B9F /* Makefile in CopyFiles */ = {isa = PBXBuildFile; fileRef = 05F9EF2D2F05673700D72B9F /* Makefile */; };
+		05F9EF3E2F0567B800D72B9F /* Boot.d.ts in CopyFiles */ = {isa = PBXBuildFile; fileRef = 05F9EF232F05672700D72B9F /* Boot.d.ts */; };
+		05F9EF3F2F0567B800D72B9F /* Builtin.d.ts in CopyFiles */ = {isa = PBXBuildFile; fileRef = 05F9EF242F05672700D72B9F /* Builtin.d.ts */; };
+		05F9EF402F0567B800D72B9F /* Console.d.ts in CopyFiles */ = {isa = PBXBuildFile; fileRef = 05F9EF252F05672700D72B9F /* Console.d.ts */; };
+		05F9EF412F0567B800D72B9F /* FrameCore.d.ts in CopyFiles */ = {isa = PBXBuildFile; fileRef = 05F9EF262F05672700D72B9F /* FrameCore.d.ts */; };
+		05F9EF432F0567F500D72B9F /* Boot.js in CopyFiles */ = {isa = PBXBuildFile; fileRef = 05F9EF282F05673700D72B9F /* Boot.js */; };
+		05F9EF442F0567F500D72B9F /* Boot.ts in CopyFiles */ = {isa = PBXBuildFile; fileRef = 05F9EF292F05673700D72B9F /* Boot.ts */; };
+		05F9EF452F0567F500D72B9F /* Console.js in CopyFiles */ = {isa = PBXBuildFile; fileRef = 05F9EF2A2F05673700D72B9F /* Console.js */; };
+		05F9EF462F0567F500D72B9F /* Console.ts in CopyFiles */ = {isa = PBXBuildFile; fileRef = 05F9EF2B2F05673700D72B9F /* Console.ts */; };
+		05F9EF472F0567F500D72B9F /* Library.js in CopyFiles */ = {isa = PBXBuildFile; fileRef = 05F9EF2C2F05673700D72B9F /* Library.js */; };
+		05F9EF482F0567F500D72B9F /* Makefile in CopyFiles */ = {isa = PBXBuildFile; fileRef = 05F9EF2D2F05673700D72B9F /* Makefile */; };
+		05F9EF4A2F05680B00D72B9F /* Boot.d.ts in CopyFiles */ = {isa = PBXBuildFile; fileRef = 05F9EF232F05672700D72B9F /* Boot.d.ts */; };
+		05F9EF4B2F05680B00D72B9F /* Builtin.d.ts in CopyFiles */ = {isa = PBXBuildFile; fileRef = 05F9EF242F05672700D72B9F /* Builtin.d.ts */; };
+		05F9EF4C2F05680B00D72B9F /* Console.d.ts in CopyFiles */ = {isa = PBXBuildFile; fileRef = 05F9EF252F05672700D72B9F /* Console.d.ts */; };
+		05F9EF4D2F05680B00D72B9F /* FrameCore.d.ts in CopyFiles */ = {isa = PBXBuildFile; fileRef = 05F9EF262F05672700D72B9F /* FrameCore.d.ts */; };
 		05FCA09E2F0351CD00F99C47 /* KSContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05BBE8F32F034F2C006AF77B /* KSContext.swift */; };
 		05FCA0A02F03777C00F99C47 /* KSGlobal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05FCA09F2F03777C00F99C47 /* KSGlobal.swift */; };
 		05FCA0A12F03777C00F99C47 /* KSGlobal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05FCA09F2F03777C00F99C47 /* KSGlobal.swift */; };
+		05FCA0B62F038C1C00F99C47 /* MultiDataKit.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 05FCA0B52F038C1C00F99C47 /* MultiDataKit.xcframework */; };
+		05FCA0B72F038C1C00F99C47 /* MultiDataKit.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 05FCA0B52F038C1C00F99C47 /* MultiDataKit.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		05FCA0B92F038C2F00F99C47 /* MultiDataKit.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 05FCA0B52F038C1C00F99C47 /* MultiDataKit.xcframework */; };
+		05FCA0BA2F038C2F00F99C47 /* MultiDataKit.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 05FCA0B52F038C1C00F99C47 /* MultiDataKit.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		05F9EF362F05679200D72B9F /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = Library;
+			dstSubfolderSpec = 7;
+			files = (
+				05F9EF372F0567A100D72B9F /* Boot.js in CopyFiles */,
+				05F9EF382F0567A100D72B9F /* Boot.ts in CopyFiles */,
+				05F9EF392F0567A100D72B9F /* Console.js in CopyFiles */,
+				05F9EF3A2F0567A100D72B9F /* Console.ts in CopyFiles */,
+				05F9EF3B2F0567A100D72B9F /* Library.js in CopyFiles */,
+				05F9EF3C2F0567A100D72B9F /* Makefile in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		05F9EF3D2F0567AA00D72B9F /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = Library/types;
+			dstSubfolderSpec = 7;
+			files = (
+				05F9EF3E2F0567B800D72B9F /* Boot.d.ts in CopyFiles */,
+				05F9EF3F2F0567B800D72B9F /* Builtin.d.ts in CopyFiles */,
+				05F9EF402F0567B800D72B9F /* Console.d.ts in CopyFiles */,
+				05F9EF412F0567B800D72B9F /* FrameCore.d.ts in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		05F9EF422F0567E600D72B9F /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = Libraries;
+			dstSubfolderSpec = 7;
+			files = (
+				05F9EF432F0567F500D72B9F /* Boot.js in CopyFiles */,
+				05F9EF442F0567F500D72B9F /* Boot.ts in CopyFiles */,
+				05F9EF452F0567F500D72B9F /* Console.js in CopyFiles */,
+				05F9EF462F0567F500D72B9F /* Console.ts in CopyFiles */,
+				05F9EF472F0567F500D72B9F /* Library.js in CopyFiles */,
+				05F9EF482F0567F500D72B9F /* Makefile in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		05F9EF492F0567FC00D72B9F /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = Library/types;
+			dstSubfolderSpec = 7;
+			files = (
+				05F9EF4A2F05680B00D72B9F /* Boot.d.ts in CopyFiles */,
+				05F9EF4B2F05680B00D72B9F /* Builtin.d.ts in CopyFiles */,
+				05F9EF4C2F05680B00D72B9F /* Console.d.ts in CopyFiles */,
+				05F9EF4D2F05680B00D72B9F /* FrameCore.d.ts in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		05FCA0B82F038C1C00F99C47 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				05FCA0B72F038C1C00F99C47 /* MultiDataKit.xcframework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		05FCA0BB2F038C2F00F99C47 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				05FCA0BA2F038C2F00F99C47 /* MultiDataKit.xcframework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		059EB1B22F034EAA00826024 /* JavaScriptKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = JavaScriptKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		05BBE8F32F034F2C006AF77B /* KSContext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KSContext.swift; sourceTree = "<group>"; };
+		05E717742F03BB4A0097516E /* KSValue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KSValue.swift; sourceTree = "<group>"; };
+		05F9EF232F05672700D72B9F /* Boot.d.ts */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.typescript; path = Boot.d.ts; sourceTree = "<group>"; };
+		05F9EF242F05672700D72B9F /* Builtin.d.ts */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.typescript; path = Builtin.d.ts; sourceTree = "<group>"; };
+		05F9EF252F05672700D72B9F /* Console.d.ts */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.typescript; path = Console.d.ts; sourceTree = "<group>"; };
+		05F9EF262F05672700D72B9F /* FrameCore.d.ts */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.typescript; path = FrameCore.d.ts; sourceTree = "<group>"; };
+		05F9EF282F05673700D72B9F /* Boot.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = Boot.js; sourceTree = "<group>"; };
+		05F9EF292F05673700D72B9F /* Boot.ts */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.typescript; path = Boot.ts; sourceTree = "<group>"; };
+		05F9EF2A2F05673700D72B9F /* Console.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = Console.js; sourceTree = "<group>"; };
+		05F9EF2B2F05673700D72B9F /* Console.ts */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.typescript; path = Console.ts; sourceTree = "<group>"; };
+		05F9EF2C2F05673700D72B9F /* Library.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = Library.js; sourceTree = "<group>"; };
+		05F9EF2D2F05673700D72B9F /* Makefile */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.make; path = Makefile; sourceTree = "<group>"; };
 		05FCA0952F03515900F99C47 /* JavaScriptKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = JavaScriptKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		05FCA09F2F03777C00F99C47 /* KSGlobal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KSGlobal.swift; sourceTree = "<group>"; };
+		05FCA0B52F038C1C00F99C47 /* MultiDataKit.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = MultiDataKit.xcframework; path = ../../../Library/Frameworks/MultiDataKit.xcframework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -38,6 +157,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				05FCA0B62F038C1C00F99C47 /* MultiDataKit.xcframework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -45,6 +165,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				05FCA0B92F038C2F00F99C47 /* MultiDataKit.xcframework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -57,6 +178,8 @@
 				059EB1B42F034EAA00826024 /* JavaScriptKit_macOS */,
 				05FCA0962F03515900F99C47 /* JavaScriptKit_iOS */,
 				05BBE8F62F034F80006AF77B /* Source */,
+				05FCA0B42F038C1C00F99C47 /* Frameworks */,
+				05F9EF212F0565AD00D72B9F /* Resource */,
 				059EB1B32F034EAA00826024 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -75,9 +198,52 @@
 			children = (
 				05BBE8F32F034F2C006AF77B /* KSContext.swift */,
 				05FCA09F2F03777C00F99C47 /* KSGlobal.swift */,
+				05E717742F03BB4A0097516E /* KSValue.swift */,
 			);
 			name = Source;
 			path = ../Source;
+			sourceTree = "<group>";
+		};
+		05F9EF212F0565AD00D72B9F /* Resource */ = {
+			isa = PBXGroup;
+			children = (
+				05F9EF222F0565D800D72B9F /* Library */,
+			);
+			name = Resource;
+			path = ../Resource;
+			sourceTree = "<group>";
+		};
+		05F9EF222F0565D800D72B9F /* Library */ = {
+			isa = PBXGroup;
+			children = (
+				05F9EF282F05673700D72B9F /* Boot.js */,
+				05F9EF292F05673700D72B9F /* Boot.ts */,
+				05F9EF2A2F05673700D72B9F /* Console.js */,
+				05F9EF2B2F05673700D72B9F /* Console.ts */,
+				05F9EF2C2F05673700D72B9F /* Library.js */,
+				05F9EF2D2F05673700D72B9F /* Makefile */,
+				05F9EF272F05672700D72B9F /* types */,
+			);
+			path = Library;
+			sourceTree = "<group>";
+		};
+		05F9EF272F05672700D72B9F /* types */ = {
+			isa = PBXGroup;
+			children = (
+				05F9EF232F05672700D72B9F /* Boot.d.ts */,
+				05F9EF242F05672700D72B9F /* Builtin.d.ts */,
+				05F9EF252F05672700D72B9F /* Console.d.ts */,
+				05F9EF262F05672700D72B9F /* FrameCore.d.ts */,
+			);
+			path = types;
+			sourceTree = "<group>";
+		};
+		05FCA0B42F038C1C00F99C47 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				05FCA0B52F038C1C00F99C47 /* MultiDataKit.xcframework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -108,6 +274,9 @@
 				059EB1AE2F034EAA00826024 /* Sources */,
 				059EB1AF2F034EAA00826024 /* Frameworks */,
 				059EB1B02F034EAA00826024 /* Resources */,
+				05FCA0B82F038C1C00F99C47 /* Embed Frameworks */,
+				05F9EF362F05679200D72B9F /* CopyFiles */,
+				05F9EF3D2F0567AA00D72B9F /* CopyFiles */,
 			);
 			buildRules = (
 			);
@@ -131,6 +300,9 @@
 				05FCA0912F03515900F99C47 /* Sources */,
 				05FCA0922F03515900F99C47 /* Frameworks */,
 				05FCA0932F03515900F99C47 /* Resources */,
+				05FCA0BB2F038C2F00F99C47 /* Embed Frameworks */,
+				05F9EF422F0567E600D72B9F /* CopyFiles */,
+				05F9EF492F0567FC00D72B9F /* CopyFiles */,
 			);
 			buildRules = (
 			);
@@ -208,6 +380,7 @@
 			files = (
 				05FCA0A02F03777C00F99C47 /* KSGlobal.swift in Sources */,
 				05BBE8F52F034F2C006AF77B /* KSContext.swift in Sources */,
+				05E717762F03BB4A0097516E /* KSValue.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -216,6 +389,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				05FCA0A12F03777C00F99C47 /* KSGlobal.swift in Sources */,
+				05E717752F03BB4A0097516E /* KSValue.swift in Sources */,
 				05FCA09E2F0351CD00F99C47 /* KSContext.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -449,6 +623,9 @@
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_APPROACHABLE_CONCURRENCY = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_INSTALL_MODULE = YES;
@@ -487,6 +664,9 @@
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_APPROACHABLE_CONCURRENCY = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_INSTALL_MODULE = YES;
