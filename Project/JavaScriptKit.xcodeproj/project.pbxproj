@@ -30,6 +30,10 @@
 		05F9EF4B2F05680B00D72B9F /* Builtin.d.ts in CopyFiles */ = {isa = PBXBuildFile; fileRef = 05F9EF242F05672700D72B9F /* Builtin.d.ts */; };
 		05F9EF4C2F05680B00D72B9F /* Console.d.ts in CopyFiles */ = {isa = PBXBuildFile; fileRef = 05F9EF252F05672700D72B9F /* Console.d.ts */; };
 		05F9EF4D2F05680B00D72B9F /* FrameCore.d.ts in CopyFiles */ = {isa = PBXBuildFile; fileRef = 05F9EF262F05672700D72B9F /* FrameCore.d.ts */; };
+		05F9EF612F06744A00D72B9F /* KSFileManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05F9EF602F06744A00D72B9F /* KSFileManager.swift */; };
+		05F9EF622F06744A00D72B9F /* KSFileManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05F9EF602F06744A00D72B9F /* KSFileManager.swift */; };
+		05F9EF642F06767900D72B9F /* KSLibrary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05F9EF632F06767900D72B9F /* KSLibrary.swift */; };
+		05F9EF652F06767900D72B9F /* KSLibrary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05F9EF632F06767900D72B9F /* KSLibrary.swift */; };
 		05FCA09E2F0351CD00F99C47 /* KSContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05BBE8F32F034F2C006AF77B /* KSContext.swift */; };
 		05FCA0A02F03777C00F99C47 /* KSGlobal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05FCA09F2F03777C00F99C47 /* KSGlobal.swift */; };
 		05FCA0A12F03777C00F99C47 /* KSGlobal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05FCA09F2F03777C00F99C47 /* KSGlobal.swift */; };
@@ -38,6 +42,23 @@
 		05FCA0B92F038C2F00F99C47 /* MultiDataKit.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 05FCA0B52F038C1C00F99C47 /* MultiDataKit.xcframework */; };
 		05FCA0BA2F038C2F00F99C47 /* MultiDataKit.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 05FCA0B52F038C1C00F99C47 /* MultiDataKit.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		05F9EF6A2F067F1600D72B9F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 059EB1A92F034EAA00826024 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 05FCA0942F03515900F99C47;
+			remoteInfo = JavaScriptKit_iOS;
+		};
+		05F9EF6C2F067F1A00D72B9F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 059EB1A92F034EAA00826024 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 059EB1B12F034EAA00826024;
+			remoteInfo = JavaScriptKit_macOS;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
 		05F9EF362F05679200D72B9F /* CopyFiles */ = {
@@ -134,6 +155,8 @@
 		05F9EF2B2F05673700D72B9F /* Console.ts */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.typescript; path = Console.ts; sourceTree = "<group>"; };
 		05F9EF2C2F05673700D72B9F /* Library.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = Library.js; sourceTree = "<group>"; };
 		05F9EF2D2F05673700D72B9F /* Makefile */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.make; path = Makefile; sourceTree = "<group>"; };
+		05F9EF602F06744A00D72B9F /* KSFileManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KSFileManager.swift; sourceTree = "<group>"; };
+		05F9EF632F06767900D72B9F /* KSLibrary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KSLibrary.swift; sourceTree = "<group>"; };
 		05FCA0952F03515900F99C47 /* JavaScriptKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = JavaScriptKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		05FCA09F2F03777C00F99C47 /* KSGlobal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KSGlobal.swift; sourceTree = "<group>"; };
 		05FCA0B52F038C1C00F99C47 /* MultiDataKit.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = MultiDataKit.xcframework; path = ../../../Library/Frameworks/MultiDataKit.xcframework; sourceTree = "<group>"; };
@@ -197,7 +220,9 @@
 			isa = PBXGroup;
 			children = (
 				05BBE8F32F034F2C006AF77B /* KSContext.swift */,
+				05F9EF602F06744A00D72B9F /* KSFileManager.swift */,
 				05FCA09F2F03777C00F99C47 /* KSGlobal.swift */,
+				05F9EF632F06767900D72B9F /* KSLibrary.swift */,
 				05E717742F03BB4A0097516E /* KSValue.swift */,
 			);
 			name = Source;
@@ -265,6 +290,27 @@
 		};
 /* End PBXHeadersBuildPhase section */
 
+/* Begin PBXLegacyTarget section */
+		05F9EF662F067EF300D72B9F /* Install */ = {
+			isa = PBXLegacyTarget;
+			buildArgumentsString = "-f ../Script/install.mk";
+			buildConfigurationList = 05F9EF672F067EF300D72B9F /* Build configuration list for PBXLegacyTarget "Install" */;
+			buildPhases = (
+			);
+			buildToolPath = /usr/bin/make;
+			buildWorkingDirectory = "";
+			dependencies = (
+				05F9EF6D2F067F1A00D72B9F /* PBXTargetDependency */,
+				05F9EF6B2F067F1600D72B9F /* PBXTargetDependency */,
+			);
+			name = Install;
+			packageProductDependencies = (
+			);
+			passBuildSettingsInEnvironment = 1;
+			productName = Install;
+		};
+/* End PBXLegacyTarget section */
+
 /* Begin PBXNativeTarget section */
 		059EB1B12F034EAA00826024 /* JavaScriptKit_macOS */ = {
 			isa = PBXNativeTarget;
@@ -331,6 +377,9 @@
 					059EB1B12F034EAA00826024 = {
 						CreatedOnToolsVersion = 26.2;
 					};
+					05F9EF662F067EF300D72B9F = {
+						CreatedOnToolsVersion = 26.2;
+					};
 					05FCA0942F03515900F99C47 = {
 						CreatedOnToolsVersion = 26.2;
 					};
@@ -352,6 +401,7 @@
 			targets = (
 				059EB1B12F034EAA00826024 /* JavaScriptKit_macOS */,
 				05FCA0942F03515900F99C47 /* JavaScriptKit_iOS */,
+				05F9EF662F067EF300D72B9F /* Install */,
 			);
 		};
 /* End PBXProject section */
@@ -380,7 +430,9 @@
 			files = (
 				05FCA0A02F03777C00F99C47 /* KSGlobal.swift in Sources */,
 				05BBE8F52F034F2C006AF77B /* KSContext.swift in Sources */,
+				05F9EF642F06767900D72B9F /* KSLibrary.swift in Sources */,
 				05E717762F03BB4A0097516E /* KSValue.swift in Sources */,
+				05F9EF612F06744A00D72B9F /* KSFileManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -389,12 +441,27 @@
 			buildActionMask = 2147483647;
 			files = (
 				05FCA0A12F03777C00F99C47 /* KSGlobal.swift in Sources */,
+				05F9EF652F06767900D72B9F /* KSLibrary.swift in Sources */,
+				05F9EF622F06744A00D72B9F /* KSFileManager.swift in Sources */,
 				05E717752F03BB4A0097516E /* KSValue.swift in Sources */,
 				05FCA09E2F0351CD00F99C47 /* KSContext.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		05F9EF6B2F067F1600D72B9F /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 05FCA0942F03515900F99C47 /* JavaScriptKit_iOS */;
+			targetProxy = 05F9EF6A2F067F1600D72B9F /* PBXContainerItemProxy */;
+		};
+		05F9EF6D2F067F1A00D72B9F /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 059EB1B12F034EAA00826024 /* JavaScriptKit_macOS */;
+			targetProxy = 05F9EF6C2F067F1A00D72B9F /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		059EB1B92F034EAA00826024 /* Debug */ = {
@@ -595,6 +662,33 @@
 			};
 			name = Release;
 		};
+		05F9EF682F067EF300D72B9F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEBUGGING_SYMBOLS = YES;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = TR2DNF3P93;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				OTHER_CFLAGS = "";
+				OTHER_LDFLAGS = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		05F9EF692F067EF300D72B9F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = TR2DNF3P93;
+				OTHER_CFLAGS = "";
+				OTHER_LDFLAGS = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
 		05FCA09B2F03515A00F99C47 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -695,6 +789,15 @@
 			buildConfigurations = (
 				059EB1BC2F034EAA00826024 /* Debug */,
 				059EB1BD2F034EAA00826024 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		05F9EF672F067EF300D72B9F /* Build configuration list for PBXLegacyTarget "Install" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				05F9EF682F067EF300D72B9F /* Debug */,
+				05F9EF692F067EF300D72B9F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
