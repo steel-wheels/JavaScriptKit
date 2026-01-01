@@ -15,16 +15,29 @@ public class KSLibrary
                 guard let libdir = FileManager.default.libraryDirectory else {
                         return MIError.error(errorCode: .fileError, message: "Library directory is nnot found", atFile: #file, function: #function)
                 }
-                let libfile = libdir.appending(path: "Library.js")
-                return load(into: context, sourceFile: libfile.appending(path: "Library.js"))
+
+                /* load Library.js */
+                if let err = load(into: context, sourceFile: libdir.appending(path: "Library.js")) {
+                        return err
+                }
+
+                /* Define global variables */
+                defineGlobalVariables(into: context)
+
+                /* load Boot.js */
+                if let err = load(into: context, sourceFile: libdir.appending(path: "Boot.js")) {
+                        return err
+                }
+
+                return nil
         }
 
-        public static func load(into context: KSContext,  sourceFile src: URL) -> NSError? {
+        private static func load(into context: KSContext,  sourceFile src: URL) -> NSError? {
                 do {
                         let script = try String(contentsOf: src, encoding: .utf8)
                         context.resetExceptionCount()
                         let _       = context.evaluateScript(script: script, sourceFile: src)
-                        if context.exceptionCount > 0 {
+                        if context.exceptionCount == 0 {
                                 return nil
                         } else {
                                 return MIError.error(errorCode: .fileError, message: "Some exception has been occured at \(src.path)")
@@ -34,8 +47,8 @@ public class KSLibrary
                 }
         }
 
-        public static func defineGlobalVariables(into context: KSContext){
-                context.set(name: "_log", function: {
+        private static func defineGlobalVariables(into context: KSContext){
+                let logFunc: @convention(block) (_ value: JSValue) -> JSValue = {
                         (_ val: JSValue) -> JSValue in
                         let result: Bool
                         if let str = val.toString() {
@@ -46,6 +59,7 @@ public class KSLibrary
                                 result = false
                         }
                         return JSValue(bool: result, in: context)
-                })
+                }
+                context.set(name: "_log", function: logFunc)
         }
 }
