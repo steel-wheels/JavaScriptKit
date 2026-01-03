@@ -176,32 +176,6 @@
 		05F9EF632F06767900D72B9F /* KSLibrary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KSLibrary.swift; sourceTree = "<group>"; };
 		05F9EF732F06848B00D72B9F /* UnitTest */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = UnitTest; sourceTree = BUILT_PRODUCTS_DIR; };
 		05F9EF752F06848B00D72B9F /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
-		05F9EF7A2F0697DF00D72B9F /* MultiDataKit_iOS.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MultiDataKit_iOS.h; sourceTree = "<group>"; };
-		05F9EF7B2F0697DF00D72B9F /* MultiDataKit_iOS.docc */ = {isa = PBXFileReference; lastKnownFileType = folder.documentationcatalog; path = MultiDataKit_iOS.docc; sourceTree = "<group>"; };
-		05F9EF7D2F0697DF00D72B9F /* MultiDataKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MultiDataKit.h; sourceTree = "<group>"; };
-		05F9EF7E2F0697DF00D72B9F /* MultiDataKit.docc */ = {isa = PBXFileReference; lastKnownFileType = folder.documentationcatalog; path = MultiDataKit.docc; sourceTree = "<group>"; };
-		05F9EF802F0697DF00D72B9F /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
-		05F9EF822F0697DF00D72B9F /* MultiDataKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; path = MultiDataKit.xcodeproj; sourceTree = "<group>"; };
-		05F9EF842F0697DF00D72B9F /* install.mk */ = {isa = PBXFileReference; lastKnownFileType = text; path = install.mk; sourceTree = "<group>"; };
-		05F9EF862F0697DF00D72B9F /* MIAttributedString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MIAttributedString.swift; sourceTree = "<group>"; };
-		05F9EF872F0697DF00D72B9F /* MICharacter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MICharacter.swift; sourceTree = "<group>"; };
-		05F9EF882F0697DF00D72B9F /* MIError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MIError.swift; sourceTree = "<group>"; };
-		05F9EF892F0697DF00D72B9F /* MIStringStream.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MIStringStream.swift; sourceTree = "<group>"; };
-		05F9EF8A2F0697DF00D72B9F /* MIText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MIText.swift; sourceTree = "<group>"; };
-		05F9EF8B2F0697DF00D72B9F /* MIValue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MIValue.swift; sourceTree = "<group>"; };
-		05F9EF8D2F0697DF00D72B9F /* MIFileManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MIFileManager.swift; sourceTree = "<group>"; };
-		05F9EF8E2F0697DF00D72B9F /* MIJsonFile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MIJsonFile.swift; sourceTree = "<group>"; };
-		05F9EF8F2F0697DF00D72B9F /* MIURL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MIURL.swift; sourceTree = "<group>"; };
-		05F9EF912F0697DF00D72B9F /* MIJson.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MIJson.swift; sourceTree = "<group>"; };
-		05F9EF922F0697DF00D72B9F /* MIToken.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MIToken.swift; sourceTree = "<group>"; };
-		05F9EF952F0697DF00D72B9F /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
-		05F9EF962F0697DF00D72B9F /* UTAttributedString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UTAttributedString.swift; sourceTree = "<group>"; };
-		05F9EF972F0697DF00D72B9F /* UTJSon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UTJSon.swift; sourceTree = "<group>"; };
-		05F9EF982F0697DF00D72B9F /* UTNumber.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UTNumber.swift; sourceTree = "<group>"; };
-		05F9EF992F0697DF00D72B9F /* UTValue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UTValue.swift; sourceTree = "<group>"; };
-		05F9EF9B2F0697DF00D72B9F /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
-		05F9EF9C2F0697DF00D72B9F /* LICENSE */ = {isa = PBXFileReference; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
-		05F9EF9D2F0697DF00D72B9F /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		05F9EFB12F06980700D72B9F /* JavaScriptKit.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = JavaScriptKit.xcframework; path = ../../../Library/Frameworks/JavaScriptKit.xcframework; sourceTree = "<group>"; };
 		05FCA0952F03515900F99C47 /* JavaScriptKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = JavaScriptKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		05FCA09F2F03777C00F99C47 /* KSGlobal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KSGlobal.swift; sourceTree = "<group>"; };
@@ -327,132 +301,10 @@
 			path = ../Test;
 			sourceTree = "<group>";
 		};
-		05F9EF7C2F0697DF00D72B9F /* MultiDataKit_iOS */ = {
-			isa = PBXGroup;
-			children = (
-				05F9EF7A2F0697DF00D72B9F /* MultiDataKit_iOS.h */,
-				05F9EF7B2F0697DF00D72B9F /* MultiDataKit_iOS.docc */,
-			);
-			path = MultiDataKit_iOS;
-			sourceTree = "<group>";
-		};
-		05F9EF7F2F0697DF00D72B9F /* MultiDataKit_macOS */ = {
-			isa = PBXGroup;
-			children = (
-				05F9EF7D2F0697DF00D72B9F /* MultiDataKit.h */,
-				05F9EF7E2F0697DF00D72B9F /* MultiDataKit.docc */,
-			);
-			path = MultiDataKit_macOS;
-			sourceTree = "<group>";
-		};
-		05F9EF812F0697DF00D72B9F /* Tests */ = {
-			isa = PBXGroup;
-			children = (
-				05F9EF802F0697DF00D72B9F /* main.swift */,
-			);
-			path = Tests;
-			sourceTree = "<group>";
-		};
-		05F9EF832F0697DF00D72B9F /* Project */ = {
-			isa = PBXGroup;
-			children = (
-				05F9EF7C2F0697DF00D72B9F /* MultiDataKit_iOS */,
-				05F9EF7F2F0697DF00D72B9F /* MultiDataKit_macOS */,
-				05F9EF812F0697DF00D72B9F /* Tests */,
-				05F9EF822F0697DF00D72B9F /* MultiDataKit.xcodeproj */,
-			);
-			path = Project;
-			sourceTree = "<group>";
-		};
-		05F9EF852F0697DF00D72B9F /* Script */ = {
-			isa = PBXGroup;
-			children = (
-				05F9EF842F0697DF00D72B9F /* install.mk */,
-			);
-			path = Script;
-			sourceTree = "<group>";
-		};
-		05F9EF8C2F0697DF00D72B9F /* Data */ = {
-			isa = PBXGroup;
-			children = (
-				05F9EF862F0697DF00D72B9F /* MIAttributedString.swift */,
-				05F9EF872F0697DF00D72B9F /* MICharacter.swift */,
-				05F9EF882F0697DF00D72B9F /* MIError.swift */,
-				05F9EF892F0697DF00D72B9F /* MIStringStream.swift */,
-				05F9EF8A2F0697DF00D72B9F /* MIText.swift */,
-				05F9EF8B2F0697DF00D72B9F /* MIValue.swift */,
-			);
-			path = Data;
-			sourceTree = "<group>";
-		};
-		05F9EF902F0697DF00D72B9F /* File */ = {
-			isa = PBXGroup;
-			children = (
-				05F9EF8D2F0697DF00D72B9F /* MIFileManager.swift */,
-				05F9EF8E2F0697DF00D72B9F /* MIJsonFile.swift */,
-				05F9EF8F2F0697DF00D72B9F /* MIURL.swift */,
-			);
-			path = File;
-			sourceTree = "<group>";
-		};
-		05F9EF932F0697DF00D72B9F /* Parser */ = {
-			isa = PBXGroup;
-			children = (
-				05F9EF912F0697DF00D72B9F /* MIJson.swift */,
-				05F9EF922F0697DF00D72B9F /* MIToken.swift */,
-			);
-			path = Parser;
-			sourceTree = "<group>";
-		};
-		05F9EF942F0697DF00D72B9F /* Source */ = {
-			isa = PBXGroup;
-			children = (
-				05F9EF8C2F0697DF00D72B9F /* Data */,
-				05F9EF902F0697DF00D72B9F /* File */,
-				05F9EF932F0697DF00D72B9F /* Parser */,
-			);
-			path = Source;
-			sourceTree = "<group>";
-		};
-		05F9EF9A2F0697DF00D72B9F /* Tests */ = {
-			isa = PBXGroup;
-			children = (
-				05F9EF952F0697DF00D72B9F /* main.swift */,
-				05F9EF962F0697DF00D72B9F /* UTAttributedString.swift */,
-				05F9EF972F0697DF00D72B9F /* UTJSon.swift */,
-				05F9EF982F0697DF00D72B9F /* UTNumber.swift */,
-				05F9EF992F0697DF00D72B9F /* UTValue.swift */,
-			);
-			path = Tests;
-			sourceTree = "<group>";
-		};
-		05F9EF9E2F0697DF00D72B9F /* MultiDataKit */ = {
-			isa = PBXGroup;
-			children = (
-				05F9EF832F0697DF00D72B9F /* Project */,
-				05F9EF852F0697DF00D72B9F /* Script */,
-				05F9EF942F0697DF00D72B9F /* Source */,
-				05F9EF9A2F0697DF00D72B9F /* Tests */,
-				05F9EF9B2F0697DF00D72B9F /* .gitignore */,
-				05F9EF9C2F0697DF00D72B9F /* LICENSE */,
-				05F9EF9D2F0697DF00D72B9F /* README.md */,
-			);
-			name = MultiDataKit;
-			path = ../../MultiDataKit;
-			sourceTree = "<group>";
-		};
-		05F9EF9F2F0697DF00D72B9F /* Products */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
 		05FCA0B42F038C1C00F99C47 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
 				05F9EFB12F06980700D72B9F /* JavaScriptKit.xcframework */,
-				05F9EF9E2F0697DF00D72B9F /* MultiDataKit */,
 				05FCA0B52F038C1C00F99C47 /* MultiDataKit.xcframework */,
 			);
 			name = Frameworks;
@@ -607,12 +459,6 @@
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 059EB1B32F034EAA00826024 /* Products */;
 			projectDirPath = "";
-			projectReferences = (
-				{
-					ProductGroup = 05F9EF9F2F0697DF00D72B9F /* Products */;
-					ProjectRef = 05F9EF822F0697DF00D72B9F /* MultiDataKit.xcodeproj */;
-				},
-			);
 			projectRoot = "";
 			targets = (
 				059EB1B12F034EAA00826024 /* JavaScriptKit_macOS */,

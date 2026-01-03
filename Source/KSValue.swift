@@ -11,7 +11,7 @@ import Foundation
 
 public extension MIValue
 {
-        func toNativeValue(context ctxt: KSContext) -> JSValue? {
+        func toScriptValue(context ctxt: KSContext) -> JSValue? {
                 var result: JSValue? = nil
                 switch self.value {
                 case .nilValue:
