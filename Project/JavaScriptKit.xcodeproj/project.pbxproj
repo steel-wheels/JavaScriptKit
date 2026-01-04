@@ -8,24 +8,24 @@
 
 /* Begin PBXBuildFile section */
 		05BBE8F52F034F2C006AF77B /* KSContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05BBE8F32F034F2C006AF77B /* KSContext.swift */; };
+		05C221292F0A0E2B007CA400 /* Boot.js in CopyFiles */ = {isa = PBXBuildFile; fileRef = 05F9EF282F05673700D72B9F /* Boot.js */; };
+		05C2212A2F0A0E2B007CA400 /* Console.js in CopyFiles */ = {isa = PBXBuildFile; fileRef = 05F9EF2A2F05673700D72B9F /* Console.js */; };
+		05C2212B2F0A0E2B007CA400 /* Library.js in CopyFiles */ = {isa = PBXBuildFile; fileRef = 05F9EF2C2F05673700D72B9F /* Library.js */; };
+		05C2212C2F0A0E46007CA400 /* Makefile in CopyFiles */ = {isa = PBXBuildFile; fileRef = 05F9EF2D2F05673700D72B9F /* Makefile */; };
+		05C2212D2F0A0E56007CA400 /* Boot.js in CopyFiles */ = {isa = PBXBuildFile; fileRef = 05F9EF282F05673700D72B9F /* Boot.js */; };
+		05C2212E2F0A0E56007CA400 /* Console.js in CopyFiles */ = {isa = PBXBuildFile; fileRef = 05F9EF2A2F05673700D72B9F /* Console.js */; };
+		05C2212F2F0A0E56007CA400 /* Library.js in CopyFiles */ = {isa = PBXBuildFile; fileRef = 05F9EF2C2F05673700D72B9F /* Library.js */; };
+		05C221302F0A0E56007CA400 /* Makefile in CopyFiles */ = {isa = PBXBuildFile; fileRef = 05F9EF2D2F05673700D72B9F /* Makefile */; };
 		05E717752F03BB4A0097516E /* KSValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05E717742F03BB4A0097516E /* KSValue.swift */; };
 		05E717762F03BB4A0097516E /* KSValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05E717742F03BB4A0097516E /* KSValue.swift */; };
-		05F9EF372F0567A100D72B9F /* Boot.js in CopyFiles */ = {isa = PBXBuildFile; fileRef = 05F9EF282F05673700D72B9F /* Boot.js */; };
 		05F9EF382F0567A100D72B9F /* Boot.ts in CopyFiles */ = {isa = PBXBuildFile; fileRef = 05F9EF292F05673700D72B9F /* Boot.ts */; };
-		05F9EF392F0567A100D72B9F /* Console.js in CopyFiles */ = {isa = PBXBuildFile; fileRef = 05F9EF2A2F05673700D72B9F /* Console.js */; };
 		05F9EF3A2F0567A100D72B9F /* Console.ts in CopyFiles */ = {isa = PBXBuildFile; fileRef = 05F9EF2B2F05673700D72B9F /* Console.ts */; };
-		05F9EF3B2F0567A100D72B9F /* Library.js in CopyFiles */ = {isa = PBXBuildFile; fileRef = 05F9EF2C2F05673700D72B9F /* Library.js */; };
-		05F9EF3C2F0567A100D72B9F /* Makefile in CopyFiles */ = {isa = PBXBuildFile; fileRef = 05F9EF2D2F05673700D72B9F /* Makefile */; };
 		05F9EF3E2F0567B800D72B9F /* Boot.d.ts in CopyFiles */ = {isa = PBXBuildFile; fileRef = 05F9EF232F05672700D72B9F /* Boot.d.ts */; };
 		05F9EF3F2F0567B800D72B9F /* Builtin.d.ts in CopyFiles */ = {isa = PBXBuildFile; fileRef = 05F9EF242F05672700D72B9F /* Builtin.d.ts */; };
 		05F9EF402F0567B800D72B9F /* Console.d.ts in CopyFiles */ = {isa = PBXBuildFile; fileRef = 05F9EF252F05672700D72B9F /* Console.d.ts */; };
 		05F9EF412F0567B800D72B9F /* FrameCore.d.ts in CopyFiles */ = {isa = PBXBuildFile; fileRef = 05F9EF262F05672700D72B9F /* FrameCore.d.ts */; };
-		05F9EF432F0567F500D72B9F /* Boot.js in CopyFiles */ = {isa = PBXBuildFile; fileRef = 05F9EF282F05673700D72B9F /* Boot.js */; };
 		05F9EF442F0567F500D72B9F /* Boot.ts in CopyFiles */ = {isa = PBXBuildFile; fileRef = 05F9EF292F05673700D72B9F /* Boot.ts */; };
-		05F9EF452F0567F500D72B9F /* Console.js in CopyFiles */ = {isa = PBXBuildFile; fileRef = 05F9EF2A2F05673700D72B9F /* Console.js */; };
 		05F9EF462F0567F500D72B9F /* Console.ts in CopyFiles */ = {isa = PBXBuildFile; fileRef = 05F9EF2B2F05673700D72B9F /* Console.ts */; };
-		05F9EF472F0567F500D72B9F /* Library.js in CopyFiles */ = {isa = PBXBuildFile; fileRef = 05F9EF2C2F05673700D72B9F /* Library.js */; };
-		05F9EF482F0567F500D72B9F /* Makefile in CopyFiles */ = {isa = PBXBuildFile; fileRef = 05F9EF2D2F05673700D72B9F /* Makefile */; };
 		05F9EF4A2F05680B00D72B9F /* Boot.d.ts in CopyFiles */ = {isa = PBXBuildFile; fileRef = 05F9EF232F05672700D72B9F /* Boot.d.ts */; };
 		05F9EF4B2F05680B00D72B9F /* Builtin.d.ts in CopyFiles */ = {isa = PBXBuildFile; fileRef = 05F9EF242F05672700D72B9F /* Builtin.d.ts */; };
 		05F9EF4C2F05680B00D72B9F /* Console.d.ts in CopyFiles */ = {isa = PBXBuildFile; fileRef = 05F9EF252F05672700D72B9F /* Console.d.ts */; };
@@ -75,12 +75,12 @@
 			dstPath = Library;
 			dstSubfolderSpec = 7;
 			files = (
-				05F9EF372F0567A100D72B9F /* Boot.js in CopyFiles */,
+				05C2212C2F0A0E46007CA400 /* Makefile in CopyFiles */,
+				05C221292F0A0E2B007CA400 /* Boot.js in CopyFiles */,
+				05C2212A2F0A0E2B007CA400 /* Console.js in CopyFiles */,
+				05C2212B2F0A0E2B007CA400 /* Library.js in CopyFiles */,
 				05F9EF382F0567A100D72B9F /* Boot.ts in CopyFiles */,
-				05F9EF392F0567A100D72B9F /* Console.js in CopyFiles */,
 				05F9EF3A2F0567A100D72B9F /* Console.ts in CopyFiles */,
-				05F9EF3B2F0567A100D72B9F /* Library.js in CopyFiles */,
-				05F9EF3C2F0567A100D72B9F /* Makefile in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -103,12 +103,12 @@
 			dstPath = Libraries;
 			dstSubfolderSpec = 7;
 			files = (
-				05F9EF432F0567F500D72B9F /* Boot.js in CopyFiles */,
+				05C2212D2F0A0E56007CA400 /* Boot.js in CopyFiles */,
+				05C2212E2F0A0E56007CA400 /* Console.js in CopyFiles */,
+				05C2212F2F0A0E56007CA400 /* Library.js in CopyFiles */,
+				05C221302F0A0E56007CA400 /* Makefile in CopyFiles */,
 				05F9EF442F0567F500D72B9F /* Boot.ts in CopyFiles */,
-				05F9EF452F0567F500D72B9F /* Console.js in CopyFiles */,
 				05F9EF462F0567F500D72B9F /* Console.ts in CopyFiles */,
-				05F9EF472F0567F500D72B9F /* Library.js in CopyFiles */,
-				05F9EF482F0567F500D72B9F /* Makefile in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -360,6 +360,7 @@
 				059EB1AF2F034EAA00826024 /* Frameworks */,
 				059EB1B02F034EAA00826024 /* Resources */,
 				05FCA0B82F038C1C00F99C47 /* Embed Frameworks */,
+				05C221282F0A0DBD007CA400 /* ShellScript */,
 				05F9EF362F05679200D72B9F /* CopyFiles */,
 				05F9EF3D2F0567AA00D72B9F /* CopyFiles */,
 			);
@@ -406,6 +407,7 @@
 				05FCA0922F03515900F99C47 /* Frameworks */,
 				05FCA0932F03515900F99C47 /* Resources */,
 				05FCA0BB2F038C2F00F99C47 /* Embed Frameworks */,
+				05C221272F0A0D42007CA400 /* Run Script */,
 				05F9EF422F0567E600D72B9F /* CopyFiles */,
 				05F9EF492F0567FC00D72B9F /* CopyFiles */,
 			);
@@ -485,6 +487,44 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		05C221272F0A0D42007CA400 /* Run Script */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Run Script";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "cd ../Resource/Library && make\n";
+		};
+		05C221282F0A0DBD007CA400 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "(cd ../Resource/Library && make)\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		059EB1AE2F034EAA00826024 /* Sources */ = {
