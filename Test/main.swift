@@ -20,11 +20,8 @@ func test() -> Bool
                 return false
         }
 
-        let scr0 = "_log(\"hello, world\");"
+        let scr0 = "_log(\"hello, world !!\");"
         ctxt.evaluateScript(scr0)
-
-        let scr1 = "console.log(\"good morning\");"
-        ctxt.evaluateScript(scr1)
 
         return true
 }

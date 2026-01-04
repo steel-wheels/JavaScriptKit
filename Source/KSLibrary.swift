@@ -16,19 +16,24 @@ open class KSLibrary
         }
 
         open func load(into ctxt: KSContext) -> NSError? {
-                guard let libdir = FileManager.default.libraryDirectory(forClass: KSLibrary.self) else {
-                        return MIError.error(errorCode: .fileError, message: "Library directory is nnot found", atFile: #file, function: #function)
+                /* define: _log */
+                let logFunc: @convention(block) (_ value: JSValue) -> Void = {
+                        (_ value: JSValue) -> Void in
+                        if let msg = value.toString() {
+                                NSLog(msg)
+                        } else {
+                                NSLog("Unexpected object: \(String(describing: value.toObject()))")
+                        }
                 }
+                ctxt.set(name: "_log", function: logFunc)
 
-                /* load Library.js */
-                if let err = load(into: ctxt, sourceFile: libdir.appending(path: "Library.js")) {
-                        return err
+                /* define: isUndefined */
+                let isUndefinedFunc: @convention(block) (_ value: JSValue) -> JSValue = {
+                        (_ value: JSValue) -> JSValue in
+                        let result: Bool = value.isUndefined
+                        return JSValue(bool: result, in: ctxt)
                 }
-
-                /* load Boot.js */
-                if let err = load(into: ctxt, sourceFile: libdir.appending(path: "Boot.js")) {
-                        return err
-                }
+                ctxt.set(name: "isUndefined", function: isUndefinedFunc)
 
                 return nil
         }

@@ -84,4 +84,28 @@ public class KSContext: JSContext
                                              message: "Failed to load from URL \(url.path)")
                 }
         }
+
+        public func set(name n: String, object o: JSExport){
+                self.setObject(o, forKeyedSubscript: NSString(string: n))
+        }
+
+        public func set(name n: String, value val: JSValue){
+                self.setObject(val, forKeyedSubscript: NSString(string: n))
+        }
+
+        public func set(name n: String, function obj: Any){
+                if let val = JSValue(object: obj, in: self){
+                        set(name: n, value: val)
+                } else {
+                        NSLog("[Error] Failed to allocate value at \(#file)")
+                }
+        }
+
+        public func get(name n: String) -> JSValue? {
+                if let obj = self.objectForKeyedSubscript(NSString(string: n)) {
+                        return obj.isUndefined ? nil : obj
+                } else {
+                        return nil
+                }
+        }
 }
