@@ -5,7 +5,6 @@
 boot	= Boot.ts
 
 srcs	=  Console.ts
-types	=  types/FraeCore.d.ts
 
 dsts	=  $(srcs:.ts=.js)
 decls	=  $(srcs:.ts=.d.ts)

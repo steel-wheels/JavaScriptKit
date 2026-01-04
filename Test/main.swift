@@ -14,7 +14,8 @@ func test() -> Bool
 {
         /* setup context */
         let ctxt = KSContext(virtualMachine: JSVirtualMachine())
-        if let err = KSLibrary.load(into: ctxt) {
+        let lib  = KSLibrary()
+        if let err = lib.load(into: ctxt) {
                 NSLog("[Error] \(MIError.errorToString(error: err))")
                 return false
         }
@@ -28,5 +29,9 @@ func test() -> Bool
         return true
 }
 
-test()
+if test() {
+        NSLog("Summary: Passed")
+} else {
+        NSLog("Summary: Failed")
+}
 

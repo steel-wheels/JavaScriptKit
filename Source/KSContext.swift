@@ -5,77 +5,83 @@
  *   Copyright (C) 2025 Steel Wheels Project
  */
 
+import MultiDataKit
 import Foundation
 import JavaScriptCore
 
-public class KSContext : JSContext
+public class KSException
 {
-        public static let gloabalVariableName = "_global"
+        private var mContext    : JSContext
+        private var mValue      : JSValue?
 
-        public typealias ExceptionCallback =  (_ exception: JSValue?) -> Void
+        public init(context ctxt: JSContext, value val: JSValue?) {
+                mContext        = ctxt
+                mValue          = val
+        }
 
-        public  var exceptionCallback   : ExceptionCallback
-        private var mExceptionCount     : Int
+        public init(context ctxt: JSContext, message msg: String) {
+                mContext        = ctxt
+                mValue          = JSValue(object: msg, in: ctxt)
+        }
 
-        public var exceptionCount: Int { get { return mExceptionCount }}
-
-        public override init(virtualMachine vm: JSVirtualMachine) {
-                exceptionCallback = {
-                        (_ exception: JSValue?) -> Void in
-                        NSLog("[JavaScript Exception] \(String(describing: exception))")
-                }
-                mExceptionCount = 0
-                super.init(virtualMachine: vm)
-
-                /* Set handler */
-                self.exceptionHandler = {
-                        [weak self] (context, value) in
-                        if let myself = self {
-                                myself.exceptionCallback(value)
-                                myself.mExceptionCount += 1
+        public var description: String {
+                get {
+                        if let val = mValue {
+                                return val.toString()
                         } else {
-                                NSLog("[JavaScript Exception] Failed to generate exception")
+                                return "nil"
                         }
-                }
-
-                /* Set global variable */
-                set(name: KSContext.gloabalVariableName, object: KSGlobal.shared)
-        }
-
-        public func resetExceptionCount() {
-                mExceptionCount = 0
-        }
-
-        public func set(name n: String, object o: JSExport){
-                self.setObject(o, forKeyedSubscript: NSString(string: n))
-        }
-
-        public func set(name n: String, value val: JSValue){
-                self.setObject(val, forKeyedSubscript: NSString(string: n))
-        }
-
-        public func set(name n: String, function obj: Any){
-                if let val = JSValue(object: obj, in: self){
-                        set(name: n, value: val)
-                } else {
-                        NSLog("[Error] Failed to set function at \(#file)")
-                }
-        }
-
-        public func get(name n: String) -> JSValue? {
-                if let obj = self.objectForKeyedSubscript(NSString(string: n)) {
-                        return obj.isUndefined ? nil : obj
-                } else {
-                        return nil
-                }
-        }
-
-        public func evaluateScript(script scr: String, sourceFile srcfile: URL?) -> JSValue {
-                if let url = srcfile {
-                        return self.evaluateScript(scr, withSourceURL: url)
-                } else {
-                        return self.evaluateScript(scr)
                 }
         }
 }
 
+public class KSContext: JSContext
+{
+        public typealias ExceptionCallback =  (_ exception: KSException) -> Void
+
+        public var exceptionCallback    : ExceptionCallback
+        private var mErrorCount         : Int
+
+        public var errorCount: Int { get { return mErrorCount }}
+        public func resetErrorCount() {
+                mErrorCount = 0
+        }
+
+        public override init(virtualMachine vm: JSVirtualMachine?) {
+                exceptionCallback = {
+                        (_ exception: KSException) -> Void in
+                        NSLog("[Exception]  \(exception.description) at \(#file)")
+                }
+                mErrorCount                = 0
+                super.init(virtualMachine: vm)
+
+                /* Set handler */
+                self.exceptionHandler = {
+                        [weak self] (context, exception) in
+                        if let myself = self, let ctxt = context as? KSContext {
+                                let except = KSException(context: ctxt, value: exception)
+                                myself.exceptionCallback(except)
+                                myself.mErrorCount += 1
+                        } else {
+                                NSLog("[Error] No context at \(#file)")
+                        }
+                }
+        }
+
+        public func loadScript(from url: URL) -> NSError? {
+                do {
+                        let text = try String(contentsOf: url, encoding: .utf8)
+                        let orgcnt = self.mErrorCount
+                        let _ = self.evaluateScript(text)
+                        let newcnt = self.mErrorCount
+                        if orgcnt == newcnt {
+                                return nil
+                        } else {
+                                return MIError.error(errorCode: .parseError, message: "Evaluaation error")
+                        }
+                } catch {
+                        return MIError.error(errorCode: .fileError,
+                                             message: "Failed to load from URL \(url.path)")
+                }
+        }
+}

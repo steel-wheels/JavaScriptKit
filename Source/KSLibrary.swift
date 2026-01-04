@@ -9,35 +9,36 @@ import MultiDataKit
 import JavaScriptCore
 import Foundation
 
-public class KSLibrary
+open class KSLibrary
 {
-        public static func load(into context: KSContext) -> NSError? {
-                guard let libdir = FileManager.default.libraryDirectory else {
+        public init() {
+
+        }
+
+        open func load(into ctxt: KSContext) -> NSError? {
+                guard let libdir = FileManager.default.libraryDirectory(forClass: KSLibrary.self) else {
                         return MIError.error(errorCode: .fileError, message: "Library directory is nnot found", atFile: #file, function: #function)
                 }
 
                 /* load Library.js */
-                if let err = load(into: context, sourceFile: libdir.appending(path: "Library.js")) {
+                if let err = load(into: ctxt, sourceFile: libdir.appending(path: "Library.js")) {
                         return err
                 }
 
-                /* Define global variables */
-                defineGlobalVariables(into: context)
-
                 /* load Boot.js */
-                if let err = load(into: context, sourceFile: libdir.appending(path: "Boot.js")) {
+                if let err = load(into: ctxt, sourceFile: libdir.appending(path: "Boot.js")) {
                         return err
                 }
 
                 return nil
         }
 
-        private static func load(into context: KSContext,  sourceFile src: URL) -> NSError? {
+        public func load(into context: KSContext,  sourceFile src: URL) -> NSError? {
                 do {
                         let script = try String(contentsOf: src, encoding: .utf8)
-                        context.resetExceptionCount()
-                        let _       = context.evaluateScript(script: script, sourceFile: src)
-                        if context.exceptionCount == 0 {
+                        context.resetErrorCount()
+                        let _ = context.evaluateScript(script, withSourceURL: src)
+                        if context.errorCount == 0 {
                                 return nil
                         } else {
                                 return MIError.error(errorCode: .fileError, message: "Some exception has been occured at \(src.path)")
@@ -45,21 +46,5 @@ public class KSLibrary
                 } catch {
                         return MIError.error(errorCode: .fileError, message: "Failed to load script at \(src.path)")
                 }
-        }
-
-        private static func defineGlobalVariables(into context: KSContext){
-                let logFunc: @convention(block) (_ value: JSValue) -> JSValue = {
-                        (_ val: JSValue) -> JSValue in
-                        let result: Bool
-                        if let str = val.toString() {
-                                NSLog(str)
-                                result = true
-                        } else {
-                                NSLog("[Error] Failed to decode: \(val)")
-                                result = false
-                        }
-                        return JSValue(bool: result, in: context)
-                }
-                context.set(name: "_log", function: logFunc)
         }
 }

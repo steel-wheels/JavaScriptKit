@@ -11,12 +11,12 @@ import Foundation
 
 extension FileManager
 {
-        public var libraryDirectory: URL? { get {
-                if let resdir = resourceDirectory(forClass: KSContext.self) {
+        public func libraryDirectory(forClass cls: AnyClass) -> URL? {
+                if let resdir = resourceDirectory(forClass: cls) {
                         return resdir.appending(path: "Library")
                 } else {
                         return nil
                 }
-        }}
+        }
 }
 
