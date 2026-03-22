@@ -6,8 +6,7 @@
 #dsts	=  $(srcs:.ts=.js)
 decls	=  types/log.d.ts \
 	   types/isUndefined.d.ts \
-	   types/Environment.d.ts \
-	   types/GlobalVariables.d.ts
+	   types/Environment.d.ts
 
 #dstlib  = Library.js
 dstdecl	= ./types/Library.d.ts

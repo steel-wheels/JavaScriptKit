@@ -9,7 +9,13 @@ import MultiDataKit
 import JavaScriptCore
 import Foundation
 
-public class KSEnvironment: NSObject, JSExport
+@objc public protocol KSEnvironmentProtocol: JSExport
+{
+        func set(_ name: JSValue, _ value: JSValue)
+        func get(_ name: JSValue) -> JSValue
+}
+
+@objc public class KSEnvironment: NSObject, KSEnvironmentProtocol
 {
         private var mContext:     KSContext
         private var mEnvironment: MIEnvironment

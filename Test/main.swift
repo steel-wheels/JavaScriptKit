@@ -25,6 +25,10 @@ func test() -> Bool
         let scr0 = "_log(\"hello, world !!\");"
         ctxt.evaluateScript(scr0)
 
+        let scr1 = "env.set(\"a\", 1234) ;\n"
+                 + "_log(env.get(\"a\")) ;\n"
+        ctxt.evaluateScript(scr1)
+
         return true
 }
 
