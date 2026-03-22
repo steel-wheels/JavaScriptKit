@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		053836772F6F788B00A259AB /* KSEnvironment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 053836762F6F788B00A259AB /* KSEnvironment.swift */; };
+		053836782F6F788B00A259AB /* KSEnvironment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 053836762F6F788B00A259AB /* KSEnvironment.swift */; };
 		05BBE8F52F034F2C006AF77B /* KSContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05BBE8F32F034F2C006AF77B /* KSContext.swift */; };
 		05DCB00C2F0A31BC000C12C4 /* Library.d.ts in CopyFiles */ = {isa = PBXBuildFile; fileRef = 05DCB00B2F0A31AE000C12C4 /* Library.d.ts */; };
 		05DCB00D2F0A31D4000C12C4 /* Library.d.ts in CopyFiles */ = {isa = PBXBuildFile; fileRef = 05DCB00B2F0A31AE000C12C4 /* Library.d.ts */; };
@@ -18,8 +20,6 @@
 		05F9EF652F06767900D72B9F /* KSLibrary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05F9EF632F06767900D72B9F /* KSLibrary.swift */; };
 		05F9EF762F06848B00D72B9F /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05F9EF752F06848B00D72B9F /* main.swift */; };
 		05FCA09E2F0351CD00F99C47 /* KSContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05BBE8F32F034F2C006AF77B /* KSContext.swift */; };
-		05FCA0A02F03777C00F99C47 /* KSGlobal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05FCA09F2F03777C00F99C47 /* KSGlobal.swift */; };
-		05FCA0A12F03777C00F99C47 /* KSGlobal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05FCA09F2F03777C00F99C47 /* KSGlobal.swift */; };
 		05FCA0B62F038C1C00F99C47 /* MultiDataKit.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 05FCA0B52F038C1C00F99C47 /* MultiDataKit.xcframework */; };
 		05FCA0B72F038C1C00F99C47 /* MultiDataKit.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 05FCA0B52F038C1C00F99C47 /* MultiDataKit.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		05FCA0B92F038C2F00F99C47 /* MultiDataKit.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 05FCA0B52F038C1C00F99C47 /* MultiDataKit.xcframework */; };
@@ -105,6 +105,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		053836762F6F788B00A259AB /* KSEnvironment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KSEnvironment.swift; sourceTree = "<group>"; };
 		059EB1B22F034EAA00826024 /* JavaScriptKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = JavaScriptKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		05BBE8F32F034F2C006AF77B /* KSContext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KSContext.swift; sourceTree = "<group>"; };
 		05DCB00B2F0A31AE000C12C4 /* Library.d.ts */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.typescript; path = Library.d.ts; sourceTree = "<group>"; };
@@ -115,7 +116,6 @@
 		05F9EF752F06848B00D72B9F /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		05F9EFB12F06980700D72B9F /* JavaScriptKit.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = JavaScriptKit.xcframework; path = ../../../Library/Frameworks/JavaScriptKit.xcframework; sourceTree = "<group>"; };
 		05FCA0952F03515900F99C47 /* JavaScriptKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = JavaScriptKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		05FCA09F2F03777C00F99C47 /* KSGlobal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KSGlobal.swift; sourceTree = "<group>"; };
 		05FCA0B52F038C1C00F99C47 /* MultiDataKit.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = MultiDataKit.xcframework; path = ../../../Library/Frameworks/MultiDataKit.xcframework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -186,8 +186,8 @@
 			isa = PBXGroup;
 			children = (
 				05BBE8F32F034F2C006AF77B /* KSContext.swift */,
+				053836762F6F788B00A259AB /* KSEnvironment.swift */,
 				05F9EF602F06744A00D72B9F /* KSFileManager.swift */,
-				05FCA09F2F03777C00F99C47 /* KSGlobal.swift */,
 				05F9EF632F06767900D72B9F /* KSLibrary.swift */,
 				05E717742F03BB4A0097516E /* KSValue.swift */,
 			);
@@ -359,7 +359,7 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 2620;
-				LastUpgradeCheck = 2620;
+				LastUpgradeCheck = 2630;
 				TargetAttributes = {
 					059EB1B12F034EAA00826024 = {
 						CreatedOnToolsVersion = 26.2;
@@ -457,7 +457,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				05FCA0A02F03777C00F99C47 /* KSGlobal.swift in Sources */,
+				053836772F6F788B00A259AB /* KSEnvironment.swift in Sources */,
 				05BBE8F52F034F2C006AF77B /* KSContext.swift in Sources */,
 				05F9EF642F06767900D72B9F /* KSLibrary.swift in Sources */,
 				05E717762F03BB4A0097516E /* KSValue.swift in Sources */,
@@ -477,7 +477,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				05FCA0A12F03777C00F99C47 /* KSGlobal.swift in Sources */,
+				053836782F6F788B00A259AB /* KSEnvironment.swift in Sources */,
 				05F9EF652F06767900D72B9F /* KSLibrary.swift in Sources */,
 				05F9EF622F06744A00D72B9F /* KSFileManager.swift in Sources */,
 				05E717752F03BB4A0097516E /* KSValue.swift in Sources */,
@@ -541,6 +541,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
 				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				DEVELOPMENT_TEAM = TR2DNF3P93;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -566,6 +567,7 @@
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = macosx;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				VERSIONING_SYSTEM = "apple-generic";
@@ -608,6 +610,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
 				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = TR2DNF3P93;
 				ENABLE_NS_ASSERTIONS = NO;
@@ -626,6 +629,7 @@
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = macosx;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
@@ -639,6 +643,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = TR2DNF3P93;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
@@ -676,6 +681,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = TR2DNF3P93;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
@@ -710,6 +716,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
+				DEAD_CODE_STRIPPING = YES;
 				DEBUGGING_SYMBOLS = YES;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				DEVELOPMENT_TEAM = TR2DNF3P93;
@@ -725,6 +732,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
+				DEAD_CODE_STRIPPING = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = TR2DNF3P93;
 				OTHER_CFLAGS = "";
@@ -737,6 +745,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
+				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = TR2DNF3P93;
 				ENABLE_HARDENED_RUNTIME = YES;
 				FRAMEWORK_SEARCH_PATHS = "$(HOME)/Library/Frameworks/**";
@@ -751,6 +760,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
+				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = TR2DNF3P93;
 				ENABLE_HARDENED_RUNTIME = YES;
 				FRAMEWORK_SEARCH_PATHS = "$(HOME)/Library/Frameworks/**";

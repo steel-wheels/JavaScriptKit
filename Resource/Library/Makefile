@@ -5,7 +5,9 @@
 #srcs	=  Console.ts
 #dsts	=  $(srcs:.ts=.js)
 decls	=  types/log.d.ts \
-	   types/isUndefined.d.ts
+	   types/isUndefined.d.ts \
+	   types/Environment.d.ts \
+	   types/GlobalVariables.d.ts
 
 #dstlib  = Library.js
 dstdecl	= ./types/Library.d.ts
@@ -27,7 +29,8 @@ all: $(dstdecl)
 $(dstdecl): $(decls)
 	cat $(decls) > $(dstdecl)
 
-#clean:
-#	rm -f $(dsts) $(boot:.ts=.js)
+clean:
+	rm -f $(dstdecl)
+
 #	(cd types && rm -f $(decls))
 

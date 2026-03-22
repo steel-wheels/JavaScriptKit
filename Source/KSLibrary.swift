@@ -15,7 +15,7 @@ open class KSLibrary
 
         }
 
-        open func load(into ctxt: KSContext) -> NSError? {
+        open func load(into ctxt: KSContext, environment env: MIEnvironment) -> NSError? {
                 /* define: _log */
                 let logFunc: @convention(block) (_ value: JSValue) -> Void = {
                         (_ value: JSValue) -> Void in
@@ -34,6 +34,10 @@ open class KSLibrary
                         return JSValue(bool: result, in: ctxt)
                 }
                 ctxt.set(name: "isUndefined", function: isUndefinedFunc)
+
+                /* define: env */
+                let envobj = KSEnvironment(context: ctxt, core: env)
+                ctxt.set(name: "env", value: JSValue(object: envobj, in: ctxt))
 
                 return nil
         }

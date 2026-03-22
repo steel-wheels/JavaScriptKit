@@ -12,10 +12,12 @@ import Cocoa
 
 func test() -> Bool
 {
+        let env = MIEnvironment()
+
         /* setup context */
         let ctxt = KSContext(virtualMachine: JSVirtualMachine())
         let lib  = KSLibrary()
-        if let err = lib.load(into: ctxt) {
+        if let err = lib.load(into: ctxt, environment: env) {
                 NSLog("[Error] \(MIError.errorToString(error: err))")
                 return false
         }
