@@ -2,13 +2,13 @@
 # Makefile
 #
 
-#srcs	=  Console.ts
-#dsts	=  $(srcs:.ts=.js)
+srcs	=  Env.ts
+dsts	=  $(srcs:.ts=.js)
 decls	=  types/log.d.ts \
 	   types/isUndefined.d.ts \
-	   types/Environment.d.ts
+	   types/EnvCore.d.ts
 
-#dstlib  = Library.js
+dstlib  = Library.js
 dstdecl	= ./types/Library.d.ts
 
 tsc	= npx tsc
@@ -20,10 +20,10 @@ tsc_opt	= -t ES2024 --lib "es2024" --declaration --declarationDir types \
 %.js: %.ts
 	$(tsc) $(tsc_opt) $<
 
-all: $(dstdecl)
+all: $(dstdecl) $(dstlib)
 
-#$(dstlib): $(dsts)
-#	cat $(dsts) > $@
+$(dstlib): $(dsts)
+	cat $(dsts) > $@
 
 $(dstdecl): $(decls)
 	cat $(decls) > $(dstdecl)

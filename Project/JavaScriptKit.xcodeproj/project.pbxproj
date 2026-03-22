@@ -10,6 +10,8 @@
 		053836772F6F788B00A259AB /* KSEnvironment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 053836762F6F788B00A259AB /* KSEnvironment.swift */; };
 		053836782F6F788B00A259AB /* KSEnvironment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 053836762F6F788B00A259AB /* KSEnvironment.swift */; };
 		05BBE8F52F034F2C006AF77B /* KSContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05BBE8F32F034F2C006AF77B /* KSContext.swift */; };
+		05D3C8972F6FF4FD00FF6DF4 /* Library.js in CopyFiles */ = {isa = PBXBuildFile; fileRef = 05D3C8932F6FF48200FF6DF4 /* Library.js */; };
+		05D3C8992F6FF52300FF6DF4 /* Library.js in CopyFiles */ = {isa = PBXBuildFile; fileRef = 05D3C8932F6FF48200FF6DF4 /* Library.js */; };
 		05DCB00C2F0A31BC000C12C4 /* Library.d.ts in CopyFiles */ = {isa = PBXBuildFile; fileRef = 05DCB00B2F0A31AE000C12C4 /* Library.d.ts */; };
 		05DCB00D2F0A31D4000C12C4 /* Library.d.ts in CopyFiles */ = {isa = PBXBuildFile; fileRef = 05DCB00B2F0A31AE000C12C4 /* Library.d.ts */; };
 		05E717752F03BB4A0097516E /* KSValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05E717742F03BB4A0097516E /* KSValue.swift */; };
@@ -51,10 +53,30 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		05F9EF362F05679200D72B9F /* CopyFiles */ = {
+		05D3C8962F6FF4F000FF6DF4 /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = Library;
+			dstSubfolderSpec = 7;
+			files = (
+				05D3C8972F6FF4FD00FF6DF4 /* Library.js in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		05D3C8982F6FF51500FF6DF4 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = Library;
+			dstSubfolderSpec = 7;
+			files = (
+				05D3C8992F6FF52300FF6DF4 /* Library.js in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		05F9EF362F05679200D72B9F /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = Library/types;
 			dstSubfolderSpec = 7;
 			files = (
 				05DCB00C2F0A31BC000C12C4 /* Library.d.ts in CopyFiles */,
@@ -108,6 +130,7 @@
 		053836762F6F788B00A259AB /* KSEnvironment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KSEnvironment.swift; sourceTree = "<group>"; };
 		059EB1B22F034EAA00826024 /* JavaScriptKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = JavaScriptKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		05BBE8F32F034F2C006AF77B /* KSContext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KSContext.swift; sourceTree = "<group>"; };
+		05D3C8932F6FF48200FF6DF4 /* Library.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = Library.js; sourceTree = "<group>"; };
 		05DCB00B2F0A31AE000C12C4 /* Library.d.ts */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.typescript; path = Library.d.ts; sourceTree = "<group>"; };
 		05E717742F03BB4A0097516E /* KSValue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KSValue.swift; sourceTree = "<group>"; };
 		05F9EF602F06744A00D72B9F /* KSFileManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KSFileManager.swift; sourceTree = "<group>"; };
@@ -208,6 +231,7 @@
 			isa = PBXGroup;
 			children = (
 				05F9EF272F05672700D72B9F /* types */,
+				05D3C8932F6FF48200FF6DF4 /* Library.js */,
 			);
 			path = Library;
 			sourceTree = "<group>";
@@ -286,10 +310,10 @@
 				059EB1AD2F034EAA00826024 /* Headers */,
 				059EB1AE2F034EAA00826024 /* Sources */,
 				059EB1AF2F034EAA00826024 /* Frameworks */,
-				059EB1B02F034EAA00826024 /* Resources */,
 				05FCA0B82F038C1C00F99C47 /* Embed Frameworks */,
 				05C221282F0A0DBD007CA400 /* ShellScript */,
 				05F9EF362F05679200D72B9F /* CopyFiles */,
+				05D3C8982F6FF51500FF6DF4 /* CopyFiles */,
 			);
 			buildRules = (
 			);
@@ -332,10 +356,10 @@
 				05FCA0902F03515900F99C47 /* Headers */,
 				05FCA0912F03515900F99C47 /* Sources */,
 				05FCA0922F03515900F99C47 /* Frameworks */,
-				05FCA0932F03515900F99C47 /* Resources */,
 				05FCA0BB2F038C2F00F99C47 /* Embed Frameworks */,
 				05C221272F0A0D42007CA400 /* Run Script */,
 				05F9EF492F0567FC00D72B9F /* CopyFiles */,
+				05D3C8962F6FF4F000FF6DF4 /* CopyFiles */,
 			);
 			buildRules = (
 			);
@@ -396,23 +420,6 @@
 			);
 		};
 /* End PBXProject section */
-
-/* Begin PBXResourcesBuildPhase section */
-		059EB1B02F034EAA00826024 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		05FCA0932F03515900F99C47 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
 		05C221272F0A0D42007CA400 /* Run Script */ = {
