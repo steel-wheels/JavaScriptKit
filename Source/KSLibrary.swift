@@ -16,6 +16,11 @@ open class KSLibrary
         }
 
         open func load(into ctxt: KSContext, environment env: MIEnvironment) -> NSError? {
+                defineBuiltinValues(into: ctxt, environment: env)
+                return nil
+        }
+
+        private func defineBuiltinValues(into ctxt: KSContext, environment env: MIEnvironment) {
                 /* define: _log */
                 let logFunc: @convention(block) (_ value: JSValue) -> Void = {
                         (_ value: JSValue) -> Void in
@@ -38,8 +43,15 @@ open class KSLibrary
                 /* define: env */
                 let envobj = KSEnvironment(context: ctxt, core: env)
                 ctxt.set(name: "env", value: JSValue(object: envobj, in: ctxt))
+        }
 
-                return nil
+        private func loaduiltinLibrary(into ctxt: KSContext, environment env: MIEnvironment) -> NSError? {
+                guard let dir = FileManager.default.resourceDirectory(forClass: KSLibrary.self) else {
+                        let err = MIError.error(errorCode: .fileError, message: "No resource directory")
+                        return err
+                }
+                let libfile = dir.appendingPathComponent("Library/Library.js")
+                return load(into: ctxt, sourceFile: libfile)
         }
 
         public func load(into context: KSContext,  sourceFile src: URL) -> NSError? {
