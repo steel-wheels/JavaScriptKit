@@ -65,3 +65,7 @@ declare function allocateURL(path: string): URL ;
 
 declare function isUndefined(obj: unknown): boolean ;
 
+/**
+ * @file math.ts
+ */
+declare function abs(val: number): number;
