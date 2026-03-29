@@ -194,6 +194,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		058FC8402F78ED2100E1A123 /* UnitTest */ = {
+			isa = PBXGroup;
+			children = (
+				05F9EF752F06848B00D72B9F /* main.swift */,
+			);
+			path = UnitTest;
+			sourceTree = "<group>";
+		};
 		059EB1A82F034EAA00826024 = {
 			isa = PBXGroup;
 			children = (
@@ -263,7 +271,7 @@
 		05F9EF6E2F0683C800D72B9F /* Test */ = {
 			isa = PBXGroup;
 			children = (
-				05F9EF752F06848B00D72B9F /* main.swift */,
+				058FC8402F78ED2100E1A123 /* UnitTest */,
 			);
 			name = Test;
 			path = ../Test;

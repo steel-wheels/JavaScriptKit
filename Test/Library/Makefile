@@ -2,6 +2,8 @@
 #
 #
 
+lib_dir = ../../Resource/Library
+
 tsc	= npx tsc
 tsc_opt	= -t ES2018 --lib "es2017" --declaration --declarationDir types \
 	  --typeRoots types \
@@ -20,7 +22,7 @@ clean:
 
 lib: types/Library.d.ts
 
-types/Library.d.ts: ../Resource/Library/types/Library.d.ts 
-	(cd ../Resource/Library/ && make)
+types/Library.d.ts: $(lib_dir)/types/Library.d.ts 
+	(cd $(lib_dir) && make)
 	cp $< $@
 
