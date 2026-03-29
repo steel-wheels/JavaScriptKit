@@ -5,22 +5,26 @@
 declare function _log(message: string): void ;
 
 /**
- * isUndefined.d.ts
+ * URLd.ts
  */
 
-declare function isUndefined(obj: unknown): boolean ;
-
-/**
- * EnvCore.d.ts
- */
-
-declare class EnvCore
-{
-	public get(name: String): any ;
-	public set(name: String, value: any): void ;
+declare class Process {
+	wait(): void
 }
 
-declare var _env: EnvCore ;
+declare function allocateProcess(): Process ;
+
+/**
+ * Environment.d.ts
+ */
+
+declare class Environment
+{
+	get(name: string): string | null ;
+	set(name: string, value: string): void ;
+}
+
+declare var env: Environment  ;
 
 /**
  * @file FileHandle.d.ts
@@ -38,3 +42,26 @@ declare class FileInterface {
     outputFileHandle(): FileHandle ;
     errorFileHandle():  FileHandle ;
 }
+/**
+ * @file Process.d.ts 
+ */
+
+declare class URL {
+	get fileInterface(): FileInterface ;
+	set fileInterface(intf: FileInterface) ;
+
+	get executableURL(): URL ;
+	set executableURL(url: URL) ;
+
+	get arguments(): string[] ;
+	set arguments(args: string[]) ;
+}
+
+declare function allocateURL(path: string): URL ;
+
+/**
+ * isUndefined.d.ts
+ */
+
+declare function isUndefined(obj: unknown): boolean ;
+

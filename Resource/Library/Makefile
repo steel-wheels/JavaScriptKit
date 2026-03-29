@@ -2,13 +2,15 @@
 # Makefile
 #
 
-srcs	=  Env.ts
+srcs	=  math.ts
 dsts	=  $(srcs:.ts=.js)
 decls	=  types/log.d.ts \
-	   types/isUndefined.d.ts \
-	   types/EnvCore.d.ts \
+	   types/URL.d.ts \
+	   types/Environment.d.ts \
 	   types/FileHandle.d.ts \
-	   types/FileInterface.d.ts
+	   types/FileInterface.d.ts \
+	   types/Process.d.ts \
+	   types/isUndefined.d.ts
 
 dstlib  = Library.js
 dstdecl	= ./types/Library.d.ts

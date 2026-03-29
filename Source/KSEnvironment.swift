@@ -17,32 +17,35 @@ import Foundation
 
 @objc public class KSEnvironment: NSObject, KSEnvironmentProtocol
 {
-        private var mContext:     KSContext
-        private var mEnvironment: MIEnvironment
+        private var mEnvironment:       MIEnvironment
+        private var mContext:           KSContext
 
-        public init(context ctxt: KSContext, core cenv: MIEnvironment){
-                mContext     = ctxt
-                mEnvironment = cenv
+        static func from(value val: JSValue) -> KSEnvironment? {
+                return val.toObject() as? KSEnvironment
         }
 
-        public func set(_ name: JSValue, _ value: JSValue) {
-                if let str = name.toString(), let obj = value.toObject() as? NSObject {
-                        mEnvironment.set(name: str, object: obj)
+        public init(environment env: MIEnvironment, context ctxt: KSContext){
+                mEnvironment    = env
+                mContext        = ctxt
+        }
+
+        public func set(_ nameval: JSValue, _ strval: JSValue) {
+                if let name = nameval.toString(), let str = strval.toString() {
+                        return mEnvironment.set(name: name, value: str as NSString)
                 } else {
-                        NSLog("[Error] Invalid parameter ar \(#file)")
+                        NSLog("[Error] Failed to set value at \(#file)")
                 }
         }
 
-        public func get(_ name: JSValue) -> JSValue {
-                guard let str = name.toString() else {
-                        NSLog("[Error] Invalid parameter ar \(#file)")
-                        return JSValue(nullIn: mContext)
-                }
-                if let obj = mEnvironment.get(name: str) {
-                        return JSValue(object: obj, in:  mContext)
+        public func get(_ nameval: JSValue) -> JSValue {
+                if let name = nameval.toString() {
+                        if let str = mEnvironment.get(name: name) {
+                                return JSValue(object: str, in: mContext)
+                        }
                 } else {
-                        return JSValue(nullIn: mContext)
+                        NSLog("[Error] Failed to get value at \(#file)")
                 }
+                return JSValue(nullIn: mContext)
         }
 }
 

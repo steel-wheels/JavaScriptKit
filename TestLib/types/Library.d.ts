@@ -5,10 +5,14 @@
 declare function _log(message: string): void ;
 
 /**
- * isUndefined.d.ts
+ * URLd.ts
  */
 
-declare function isUndefined(obj: unknown): boolean ;
+declare class Process {
+	wait(): void
+}
+
+declare function allocateProcess(): Process ;
 
 /**
  * EnvCore.d.ts
@@ -38,3 +42,26 @@ declare class FileInterface {
     outputFileHandle(): FileHandle ;
     errorFileHandle():  FileHandle ;
 }
+/**
+ * @file Process.d.ts 
+ */
+
+declare class URL {
+	get fileInterface(): FileInterface ;
+	set fileInterface(intf: FileInterface) ;
+
+	get executableURL(): URL ;
+	set executableURL(url: URL) ;
+
+	get arguments(): string[] ;
+	set arguments(args: string[]) ;
+}
+
+declare function allocateURL(path: string): URL ;
+
+/**
+ * isUndefined.d.ts
+ */
+
+declare function isUndefined(obj: unknown): boolean ;
+

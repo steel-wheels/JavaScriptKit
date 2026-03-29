@@ -16,11 +16,21 @@ open class KSLibrary
         }
 
         open func load(into ctxt: KSContext, environment env: MIEnvironment) -> NSError? {
-                defineBuiltinValues(into: ctxt, environment: env)
+                defineBuiltinVariables(into: ctxt, environment: env)
+                defineBuiltinFunctions(into: ctxt, environment: env)
+                if let err = loadBuiltinLibrary(into: ctxt, environment: env) {
+                        NSLog("[Error] \(MIError.errorToString(error: err)) at \(#file)")
+                        return err
+                }
                 return nil
         }
 
-        private func defineBuiltinValues(into ctxt: KSContext, environment env: MIEnvironment) {
+        private func defineBuiltinVariables(into ctxt: KSContext, environment env: MIEnvironment) {
+                let envobj = KSEnvironment(environment: env, context: ctxt)
+                ctxt.set(name: "env", value: JSValue(object: envobj, in: ctxt))
+        }
+
+        private func defineBuiltinFunctions(into ctxt: KSContext, environment env: MIEnvironment) {
                 /* define: _log */
                 let logFunc: @convention(block) (_ value: JSValue) -> Void = {
                         (_ value: JSValue) -> Void in
@@ -39,13 +49,27 @@ open class KSLibrary
                         return JSValue(bool: result, in: ctxt)
                 }
                 ctxt.set(name: "isUndefined", function: isUndefinedFunc)
-
-                /* define: env */
-                let envobj = KSEnvironment(context: ctxt, core: env)
-                ctxt.set(name: "env", value: JSValue(object: envobj, in: ctxt))
         }
 
-        private func loaduiltinLibrary(into ctxt: KSContext, environment env: MIEnvironment) -> NSError? {
+        private func defineBuiltinConstructor(into ctxt: KSContext, environment env: MIEnvironment) {
+                /* allocateURL */
+                let allocateURLFunc: @convention(block) (_ pathval: JSValue) -> JSValue = {
+                        (_ pathval: JSValue) -> JSValue in
+                        return KSURL.allocate(pathval, context: ctxt)
+                }
+                ctxt.set(name: "allocateURL", function: allocateURLFunc)
+
+                #if os(OSX)
+                /* allocateProcess */
+                let allocateProcessFunc: @convention(block) () -> JSValue = {
+                        () -> JSValue in
+                        return KSProcess.allocate(context: ctxt, environment: env)
+                }
+                ctxt.set(name: "allocateProcess", function: allocateProcessFunc)
+                #endif // os(OSX)
+        }
+
+        private func loadBuiltinLibrary(into ctxt: KSContext, environment env: MIEnvironment) -> NSError? {
                 guard let dir = FileManager.default.resourceDirectory(forClass: KSLibrary.self) else {
                         let err = MIError.error(errorCode: .fileError, message: "No resource directory")
                         return err
