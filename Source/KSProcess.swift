@@ -14,6 +14,8 @@ import Foundation
 @objc public protocol KSProcessProtocol: JSExport
 {
         var fileInterface: JSValue { get set }
+        func run() -> JSValue
+        func wait()
 }
 
 @objc public class KSProcess: NSObject, KSProcessProtocol
@@ -85,6 +87,18 @@ import Foundation
                                 NSLog("[Error] Failed to get arguments at \(#file)")
                         }
                 }
+        }
+
+        public func run() -> JSValue {
+                if let _ = mProcess.runAndCheckError() {
+                        return JSValue(bool: false, in: mContext)
+                } else {
+                        return JSValue(bool: true, in: mContext)
+                }
+        }
+
+        public func wait() {
+                mProcess.waitUntilExit()
         }
 }
 

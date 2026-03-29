@@ -55,6 +55,9 @@ declare class URL {
 
 	get arguments(): string[] ;
 	set arguments(args: string[]) ;
+
+	run(): boolean ;
+	wait(): void ;
 }
 
 declare function allocateURL(path: string): URL ;
