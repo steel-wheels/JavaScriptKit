@@ -12,7 +12,7 @@ declare class URL {
 	get arguments(): string[] ;
 	set arguments(args: string[]) ;
 
-	run(): boolean ;
+	run(): number ;
 	wait(): void ;
 }
 

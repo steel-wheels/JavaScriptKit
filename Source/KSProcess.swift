@@ -90,11 +90,8 @@ import Foundation
         }
 
         public func run() -> JSValue {
-                if let _ = mProcess.runAndCheckError() {
-                        return JSValue(bool: false, in: mContext)
-                } else {
-                        return JSValue(bool: true, in: mContext)
-                }
+                let ecode = mProcess.runAndCheckError()
+                return JSValue(int32: ecode, in: mContext)
         }
 
         public func wait() {
