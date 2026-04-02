@@ -90,8 +90,12 @@ import Foundation
         }
 
         public func run() -> JSValue {
-                let ecode = mProcess.runAndCheckError()
-                return JSValue(int32: ecode, in: mContext)
+                let pid = mProcess.tryRun()
+                if pid >= 0 {
+                        return JSValue(int32: pid, in: mContext)
+                } else {
+                        return JSValue(nullIn: mContext)
+                }
         }
 
         public func wait() {

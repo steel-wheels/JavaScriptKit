@@ -12,7 +12,8 @@ declare class URL {
 	get arguments(): string[] ;
 	set arguments(args: string[]) ;
 
-	run(): number ;
+	/* return the process-id or null */
+	run(): number | null ;
 	wait(): void ;
 }
 
