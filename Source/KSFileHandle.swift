@@ -25,6 +25,10 @@ import Foundation
                 mContext        = ctxt
         }
 
+        public var core: FileHandle { get {
+                return mFileHandle
+        }}
+
         public func setReader(_ calllback: JSValue) {
                 mFileHandle.setReader(reader: {
                         @Sendable (_ str: String) -> Void in

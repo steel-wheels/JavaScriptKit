@@ -35,20 +35,18 @@ declare class FileHandle {
 }
 
 /**
- * @file FileInterface.d.ts
- */
-declare class FileInterface {
-    inputFileHandle():  FileHandle ;
-    outputFileHandle(): FileHandle ;
-    errorFileHandle():  FileHandle ;
-}
-/**
  * @file Process.d.ts 
  */
 
 declare class URL {
-	get fileInterface(): FileInterface ;
-	set fileInterface(intf: FileInterface) ;
+	get standardInput() : FileHandle ;
+	set standardInput(file: FileHandle) ;
+
+	get standardOutput() : FileHandle ;
+	set standardOutput(file: FileHandle) ;
+
+	get standardError() : FileHandle ;
+	set standardError(file: FileHandle) ;
 
 	get executableURL(): URL ;
 	set executableURL(url: URL) ;

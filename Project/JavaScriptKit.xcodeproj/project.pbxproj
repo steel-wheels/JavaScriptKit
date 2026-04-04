@@ -14,8 +14,6 @@
 		05D3C8992F6FF52300FF6DF4 /* Library.js in CopyFiles */ = {isa = PBXBuildFile; fileRef = 05D3C8932F6FF48200FF6DF4 /* Library.js */; };
 		05D3C8B32F72C32500FF6DF4 /* KSFileHandle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05D3C8B22F72C32500FF6DF4 /* KSFileHandle.swift */; };
 		05D3C8B42F72C32500FF6DF4 /* KSFileHandle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05D3C8B22F72C32500FF6DF4 /* KSFileHandle.swift */; };
-		05D3C8B62F74123D00FF6DF4 /* KSFileInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05D3C8B52F74123D00FF6DF4 /* KSFileInterface.swift */; };
-		05D3C8B72F74123D00FF6DF4 /* KSFileInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05D3C8B52F74123D00FF6DF4 /* KSFileInterface.swift */; };
 		05D3C8B92F756AD100FF6DF4 /* KSURL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05D3C8B82F756AD100FF6DF4 /* KSURL.swift */; };
 		05D3C8BA2F756AD100FF6DF4 /* KSURL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05D3C8B82F756AD100FF6DF4 /* KSURL.swift */; };
 		05D3C8BC2F757E7E00FF6DF4 /* KSProcess.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05D3C8BB2F757E7E00FF6DF4 /* KSProcess.swift */; };
@@ -140,7 +138,6 @@
 		05BBE8F32F034F2C006AF77B /* KSContext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KSContext.swift; sourceTree = "<group>"; };
 		05D3C8932F6FF48200FF6DF4 /* Library.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = Library.js; sourceTree = "<group>"; };
 		05D3C8B22F72C32500FF6DF4 /* KSFileHandle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KSFileHandle.swift; sourceTree = "<group>"; };
-		05D3C8B52F74123D00FF6DF4 /* KSFileInterface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KSFileInterface.swift; sourceTree = "<group>"; };
 		05D3C8B82F756AD100FF6DF4 /* KSURL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KSURL.swift; sourceTree = "<group>"; };
 		05D3C8BB2F757E7E00FF6DF4 /* KSProcess.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KSProcess.swift; sourceTree = "<group>"; };
 		05DCB00B2F0A31AE000C12C4 /* Library.d.ts */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.typescript; path = Library.d.ts; sourceTree = "<group>"; };
@@ -232,7 +229,6 @@
 				05BBE8F32F034F2C006AF77B /* KSContext.swift */,
 				058FC83D2F78B00400E1A123 /* KSEnvironment.swift */,
 				05D3C8B22F72C32500FF6DF4 /* KSFileHandle.swift */,
-				05D3C8B52F74123D00FF6DF4 /* KSFileInterface.swift */,
 				05F9EF602F06744A00D72B9F /* KSFileManager.swift */,
 				05D3C8BB2F757E7E00FF6DF4 /* KSProcess.swift */,
 				05D3C8B82F756AD100FF6DF4 /* KSURL.swift */,
@@ -493,7 +489,6 @@
 				05F9EF642F06767900D72B9F /* KSLibrary.swift in Sources */,
 				05E717762F03BB4A0097516E /* KSValue.swift in Sources */,
 				05F9EF612F06744A00D72B9F /* KSFileManager.swift in Sources */,
-				05D3C8B62F74123D00FF6DF4 /* KSFileInterface.swift in Sources */,
 				058FC83E2F78B00400E1A123 /* KSEnvironment.swift in Sources */,
 				05D3C8B92F756AD100FF6DF4 /* KSURL.swift in Sources */,
 				05D3C8BC2F757E7E00FF6DF4 /* KSProcess.swift in Sources */,
@@ -512,7 +507,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				05D3C8B72F74123D00FF6DF4 /* KSFileInterface.swift in Sources */,
 				05D3C8BA2F756AD100FF6DF4 /* KSURL.swift in Sources */,
 				05F9EF652F06767900D72B9F /* KSLibrary.swift in Sources */,
 				05D3C8BD2F757E7E00FF6DF4 /* KSProcess.swift in Sources */,

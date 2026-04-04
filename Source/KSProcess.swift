@@ -13,7 +13,10 @@ import Foundation
 
 @objc public protocol KSProcessProtocol: JSExport
 {
-        var fileInterface: JSValue { get set }
+        var standardInput: JSValue { get set }
+        var standardOutput: JSValue { get set }
+        var standardError: JSValue { get set }
+
         func run() -> JSValue
         func wait()
 }
@@ -34,20 +37,77 @@ import Foundation
                 mContext        = ctxt
         }
 
-        public var fileInterface: JSValue {
+        public var standardInput: JSValue {
                 get {
-                        let fileif = KSFileInterface(
-                                fileInterface:  mProcess.fileInterface,
-                                context:        mContext
-                        )
-                        return JSValue(object: fileif, in: mContext)
+                        let hdlval = KSFileHandle(fileHandle: self.inputFileHandle, context: mContext)
+                        return JSValue(object: hdlval, in: mContext)
                 }
                 set(val){
-                        if let fileif = KSFileInterface.from(value: val) {
-                                mProcess.fileInterface = fileif.core
+                        if let hdl = valueToFileHandle(fileHandle: val) {
+                                mProcess.standardInput = hdl
                         } else {
-                                NSLog("[Error] Failed to get file interface at \(#file)")
+                                NSLog("[Error] Failed to set input file handle at \(#file)")
                         }
+                }
+        }
+
+        public var standardOutput: JSValue {
+                get {
+                        let hdlval = KSFileHandle(fileHandle: self.outputFileHandle, context: mContext)
+                        return JSValue(object: hdlval, in: mContext)
+                }
+                set(val){
+                        if let hdl = valueToFileHandle(fileHandle: val) {
+                                mProcess.standardOutput = hdl
+                        } else {
+                                NSLog("[Error] Failed to set output file handle at \(#file)")
+                        }
+                }
+        }
+
+        public var standardError: JSValue {
+                get {
+                        let hdlval = KSFileHandle(fileHandle: self.errorFileHandle, context: mContext)
+                        return JSValue(object: hdlval, in: mContext)
+                }
+                set(val){
+                        if let hdl = valueToFileHandle(fileHandle: val) {
+                                mProcess.standardError = hdl
+                        } else {
+                                NSLog("[Error] Failed to set error file handle at \(#file)")
+                        }
+                }
+        }
+
+        private var inputFileHandle: FileHandle { get {
+                if let hdl = mProcess.standardInput as? FileHandle {
+                        return hdl
+                } else {
+                        return FileHandle.standardInput
+                }
+        }}
+
+        private var outputFileHandle: FileHandle { get {
+                if let hdl = mProcess.standardOutput as? FileHandle {
+                        return hdl
+                } else {
+                        return FileHandle.standardOutput
+                }
+        }}
+
+        private var errorFileHandle: FileHandle { get {
+                if let hdl = mProcess.standardError as? FileHandle {
+                        return hdl
+                } else {
+                        return FileHandle.standardError
+                }
+        }}
+
+        private func valueToFileHandle(fileHandle val: JSValue) -> FileHandle? {
+                if let obj = val.toObject() as? KSFileHandle {
+                        return obj.core
+                } else {
+                        return nil
                 }
         }
 

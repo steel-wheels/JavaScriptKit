@@ -8,7 +8,6 @@ bltdecls	=  types/log.d.ts \
 		   types/URL.d.ts \
 		   types/Environment.d.ts \
 		   types/FileHandle.d.ts \
-		   types/FileInterface.d.ts \
 		   types/Process.d.ts \
 		   types/isUndefined.d.ts
 tsdecls		=  $(addprefix types/, $(srcs:.ts=.d.ts))
