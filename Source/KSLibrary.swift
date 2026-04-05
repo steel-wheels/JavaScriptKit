@@ -15,7 +15,7 @@ open class KSLibrary
 
         }
 
-        open func load(into ctxt: KSContext, environment env: MIEnvironment) -> NSError? {
+        open func load(into ctxt: KSContext, environment env: MIEnvVariables) -> NSError? {
                 defineBuiltinVariables(into: ctxt, environment: env)
                 defineBuiltinFunctions(into: ctxt, environment: env)
                 if let err = loadBuiltinLibrary(into: ctxt, environment: env) {
@@ -25,12 +25,12 @@ open class KSLibrary
                 return nil
         }
 
-        private func defineBuiltinVariables(into ctxt: KSContext, environment env: MIEnvironment) {
-                let envobj = KSEnvironment(environment: env, context: ctxt)
+        private func defineBuiltinVariables(into ctxt: KSContext, environment env: MIEnvVariables) {
+                let envobj = KSEnvVariables(environment: env, context: ctxt)
                 ctxt.set(name: "env", value: JSValue(object: envobj, in: ctxt))
         }
 
-        private func defineBuiltinFunctions(into ctxt: KSContext, environment env: MIEnvironment) {
+        private func defineBuiltinFunctions(into ctxt: KSContext, environment env: MIEnvVariables) {
                 /* define: _log */
                 let logFunc: @convention(block) (_ value: JSValue) -> Void = {
                         (_ value: JSValue) -> Void in
@@ -51,7 +51,7 @@ open class KSLibrary
                 ctxt.set(name: "isUndefined", function: isUndefinedFunc)
         }
 
-        private func defineBuiltinConstructor(into ctxt: KSContext, environment env: MIEnvironment) {
+        private func defineBuiltinConstructor(into ctxt: KSContext, environment env: MIEnvVariables) {
                 /* allocateURL */
                 let allocateURLFunc: @convention(block) (_ pathval: JSValue) -> JSValue = {
                         (_ pathval: JSValue) -> JSValue in
@@ -69,7 +69,7 @@ open class KSLibrary
                 #endif // os(OSX)
         }
 
-        private func loadBuiltinLibrary(into ctxt: KSContext, environment env: MIEnvironment) -> NSError? {
+        private func loadBuiltinLibrary(into ctxt: KSContext, environment env: MIEnvVariables) -> NSError? {
                 guard let dir = FileManager.default.resourceDirectory(forClass: KSLibrary.self) else {
                         let err = MIError.error(errorCode: .fileError, message: "No resource directory")
                         return err

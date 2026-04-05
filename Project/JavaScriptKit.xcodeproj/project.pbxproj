@@ -7,8 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		058FC83E2F78B00400E1A123 /* KSEnvironment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 058FC83D2F78B00400E1A123 /* KSEnvironment.swift */; };
-		058FC83F2F78B00400E1A123 /* KSEnvironment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 058FC83D2F78B00400E1A123 /* KSEnvironment.swift */; };
+		058FC83E2F78B00400E1A123 /* KSEnvVariables.swift in Sources */ = {isa = PBXBuildFile; fileRef = 058FC83D2F78B00400E1A123 /* KSEnvVariables.swift */; };
+		058FC83F2F78B00400E1A123 /* KSEnvVariables.swift in Sources */ = {isa = PBXBuildFile; fileRef = 058FC83D2F78B00400E1A123 /* KSEnvVariables.swift */; };
 		05BBE8F52F034F2C006AF77B /* KSContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05BBE8F32F034F2C006AF77B /* KSContext.swift */; };
 		05D3C8972F6FF4FD00FF6DF4 /* Library.js in CopyFiles */ = {isa = PBXBuildFile; fileRef = 05D3C8932F6FF48200FF6DF4 /* Library.js */; };
 		05D3C8992F6FF52300FF6DF4 /* Library.js in CopyFiles */ = {isa = PBXBuildFile; fileRef = 05D3C8932F6FF48200FF6DF4 /* Library.js */; };
@@ -133,7 +133,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		058FC83D2F78B00400E1A123 /* KSEnvironment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KSEnvironment.swift; sourceTree = "<group>"; };
+		058FC83D2F78B00400E1A123 /* KSEnvVariables.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KSEnvVariables.swift; sourceTree = "<group>"; };
 		059EB1B22F034EAA00826024 /* JavaScriptKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = JavaScriptKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		05BBE8F32F034F2C006AF77B /* KSContext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KSContext.swift; sourceTree = "<group>"; };
 		05D3C8932F6FF48200FF6DF4 /* Library.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = Library.js; sourceTree = "<group>"; };
@@ -227,7 +227,7 @@
 			children = (
 				05F9EF632F06767900D72B9F /* KSLibrary.swift */,
 				05BBE8F32F034F2C006AF77B /* KSContext.swift */,
-				058FC83D2F78B00400E1A123 /* KSEnvironment.swift */,
+				058FC83D2F78B00400E1A123 /* KSEnvVariables.swift */,
 				05D3C8B22F72C32500FF6DF4 /* KSFileHandle.swift */,
 				05F9EF602F06744A00D72B9F /* KSFileManager.swift */,
 				05D3C8BB2F757E7E00FF6DF4 /* KSProcess.swift */,
@@ -489,7 +489,7 @@
 				05F9EF642F06767900D72B9F /* KSLibrary.swift in Sources */,
 				05E717762F03BB4A0097516E /* KSValue.swift in Sources */,
 				05F9EF612F06744A00D72B9F /* KSFileManager.swift in Sources */,
-				058FC83E2F78B00400E1A123 /* KSEnvironment.swift in Sources */,
+				058FC83E2F78B00400E1A123 /* KSEnvVariables.swift in Sources */,
 				05D3C8B92F756AD100FF6DF4 /* KSURL.swift in Sources */,
 				05D3C8BC2F757E7E00FF6DF4 /* KSProcess.swift in Sources */,
 			);
@@ -514,7 +514,7 @@
 				05E717752F03BB4A0097516E /* KSValue.swift in Sources */,
 				05FCA09E2F0351CD00F99C47 /* KSContext.swift in Sources */,
 				05D3C8B32F72C32500FF6DF4 /* KSFileHandle.swift in Sources */,
-				058FC83F2F78B00400E1A123 /* KSEnvironment.swift in Sources */,
+				058FC83F2F78B00400E1A123 /* KSEnvVariables.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

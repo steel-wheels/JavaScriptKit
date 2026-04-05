@@ -26,7 +26,7 @@ import Foundation
         private var mProcess:           Process
         private var mContext:           KSContext
 
-        static public func allocate(context ctxt: KSContext, environment env: MIEnvironment) -> JSValue{
+        static public func allocate(context ctxt: KSContext, environment env: MIEnvVariables) -> JSValue{
                 let proccore = Process(environment: env)
                 let newproc  = KSProcess(process: proccore, context: ctxt)
                 return JSValue(object: newproc, in: ctxt)

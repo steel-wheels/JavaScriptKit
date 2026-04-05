@@ -6,7 +6,7 @@ srcs		=  math.ts
 dsts		=  $(srcs:.ts=.js)
 bltdecls	=  types/log.d.ts \
 		   types/URL.d.ts \
-		   types/Environment.d.ts \
+		   types/EnvVariables.d.ts \
 		   types/FileHandle.d.ts \
 		   types/Process.d.ts \
 		   types/isUndefined.d.ts
