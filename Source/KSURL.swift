@@ -11,7 +11,7 @@ import Foundation
 
 @objc public protocol KSURLProtocol: JSExport
 {
-        func path() -> JSValue  // () -> String
+        var path: JSValue { get }
 }
 
 @objc public class KSURL: NSObject, KSURLProtocol
@@ -42,9 +42,9 @@ import Foundation
                 return mURL
         }}
 
-        public func path() -> JSValue {
+        public var path: JSValue { get {
                 let str = mURL.path(percentEncoded: true)
                 return JSValue(object: str, in: mContext)
-        }
+        }}
 }
 

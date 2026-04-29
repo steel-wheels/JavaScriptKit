@@ -12,17 +12,24 @@ import Foundation
 open class KSLibrary
 {
         public enum BuiltinName: String {
-                case Environment        = "env"
-                case newProcess         = "newProcess"
+                case defaultInputFileHandle     = "defaultInputFileHandle"
+                case defaultOutputFileHandle    = "defaultOutputFileHandle"
+                case defaultErrorFileHandle     = "defaultErrorFileHandle"
+                case env                        = "env"
+                case newProcess                 = "newProcess"
+                case newURL                     = "newURL"
         }
 
         public init() {
         }
 
-        open func load(virtualMachine vm: JSVirtualMachine, environment env: MIEnvVariables) -> Result<KSContext, NSError> {
+        open func load(virtualMachine vm: JSVirtualMachine,
+                       processFileHandle prochdl: MIProcessFileHandle,
+                       environment env: MIEnvVariables) -> Result<KSContext, NSError> {
                 let ctxt = KSContext(virtualMachine: vm)
-                defineBuiltinVariables(into: ctxt, environment: env)
+                defineBuiltinVariables(into: ctxt, processFileHandle: prochdl, environment: env)
                 defineBuiltinFunctions(into: ctxt, environment: env)
+                defineBuiltinConstructor(into: ctxt, environment: env)
                 if let err = loadBuiltinLibrary(into: ctxt, environment: env) {
                         NSLog("[Error] \(MIError.errorToString(error: err)) at \(#file)")
                         return .failure(err)
@@ -30,11 +37,28 @@ open class KSLibrary
                 return .success(ctxt)
         }
 
-        private func defineBuiltinVariables(into ctxt: KSContext, environment env: MIEnvVariables) {
+        private func defineBuiltinVariables(into ctxt: KSContext,
+                                            processFileHandle prochdl: MIProcessFileHandle,
+                                            environment env: MIEnvVariables) {
                 /* env */
                 let envobj = KSEnvVariables(environment: env, context: ctxt)
-                ctxt.set(name:  BuiltinName.Environment.rawValue,
+                ctxt.set(name: BuiltinName.env.rawValue,
                          value: JSValue(object: envobj, in: ctxt))
+
+                /* defaultInputFileHandle  */
+                let inobj = KSFileHandle(fileHandle: prochdl.inputFileHandle, context: ctxt)
+                ctxt.set(name: BuiltinName.defaultInputFileHandle.rawValue,
+                         value: JSValue(object: inobj, in: ctxt))
+
+                /* defaultOutputFileHandle  */
+                let outobj = KSFileHandle(fileHandle: prochdl.outputFileHandle, context: ctxt)
+                ctxt.set(name: BuiltinName.defaultOutputFileHandle.rawValue,
+                         value: JSValue(object: outobj, in: ctxt))
+
+                /* defaultErrorFileHandle  */
+                let errobj = KSFileHandle(fileHandle: prochdl.errorFilehandle, context: ctxt)
+                ctxt.set(name: BuiltinName.defaultErrorFileHandle.rawValue,
+                         value: JSValue(object: errobj, in: ctxt))
         }
 
         private func defineBuiltinFunctions(into ctxt: KSContext, environment env: MIEnvVariables) {
@@ -59,15 +83,14 @@ open class KSLibrary
         }
 
         private func defineBuiltinConstructor(into ctxt: KSContext, environment env: MIEnvVariables) {
-                /* allocateURL */
+                /* newURL */
                 let allocateURLFunc: @convention(block) (_ pathval: JSValue) -> JSValue = {
                         (_ pathval: JSValue) -> JSValue in
                         return KSURL.allocate(pathval, context: ctxt)
                 }
-                ctxt.set(name: "allocateURL", function: allocateURLFunc)
+                ctxt.set(name: BuiltinName.newURL.rawValue, function: allocateURLFunc)
 
                 #if os(OSX)
-
                 /* newProcess */
                 let newProcessFunc: @convention(block) () -> JSValue = {
                         () -> JSValue in

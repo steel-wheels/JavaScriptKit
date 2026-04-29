@@ -20,10 +20,13 @@ func test() -> Bool
                 return false
         }
 
-        let lib  = KSLibrary()
+        let prochdl = MIProcessFileHandle(input:  FileHandle.standardInput,
+                                          output: FileHandle.standardOutput,
+                                          error:  FileHandle.standardError)
 
+        let lib  = KSLibrary()
         let ctxt: KSContext
-        switch lib.load(virtualMachine: vm, environment: env) {
+        switch lib.load(virtualMachine: vm, processFileHandle: prochdl, environment: env) {
         case .success(let _ctxt):
                 ctxt = _ctxt
         case .failure(let err):
@@ -37,6 +40,10 @@ func test() -> Bool
         let scr1 = "env.setString(\"a\", \"ABCDE\") ;\n"
                  + "_log(env.getString(\"a\")) ;\n"
         ctxt.evaluateScript(scr1)
+
+        let scr2 = "let url0 = newURL(\"/bin/ls\") ;\n"
+                 + "_log(url0.path) ;"
+        ctxt.evaluateScript(scr2)
 
         return true
 }
