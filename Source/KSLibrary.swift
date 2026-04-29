@@ -11,23 +11,30 @@ import Foundation
 
 open class KSLibrary
 {
-        public init() {
-
+        public enum BuiltinName: String {
+                case Environment        = "env"
+                case newProcess         = "newProcess"
         }
 
-        open func load(into ctxt: KSContext, environment env: MIEnvVariables) -> NSError? {
+        public init() {
+        }
+
+        open func load(virtualMachine vm: JSVirtualMachine, environment env: MIEnvVariables) -> Result<KSContext, NSError> {
+                let ctxt = KSContext(virtualMachine: vm)
                 defineBuiltinVariables(into: ctxt, environment: env)
                 defineBuiltinFunctions(into: ctxt, environment: env)
                 if let err = loadBuiltinLibrary(into: ctxt, environment: env) {
                         NSLog("[Error] \(MIError.errorToString(error: err)) at \(#file)")
-                        return err
+                        return .failure(err)
                 }
-                return nil
+                return .success(ctxt)
         }
 
         private func defineBuiltinVariables(into ctxt: KSContext, environment env: MIEnvVariables) {
+                /* env */
                 let envobj = KSEnvVariables(environment: env, context: ctxt)
-                ctxt.set(name: "env", value: JSValue(object: envobj, in: ctxt))
+                ctxt.set(name:  BuiltinName.Environment.rawValue,
+                         value: JSValue(object: envobj, in: ctxt))
         }
 
         private func defineBuiltinFunctions(into ctxt: KSContext, environment env: MIEnvVariables) {
@@ -60,12 +67,14 @@ open class KSLibrary
                 ctxt.set(name: "allocateURL", function: allocateURLFunc)
 
                 #if os(OSX)
-                /* allocateProcess */
-                let allocateProcessFunc: @convention(block) () -> JSValue = {
+
+                /* newProcess */
+                let newProcessFunc: @convention(block) () -> JSValue = {
                         () -> JSValue in
                         return KSProcess.allocate(context: ctxt, environment: env)
                 }
-                ctxt.set(name: "allocateProcess", function: allocateProcessFunc)
+                ctxt.set(name: BuiltinName.newProcess.rawValue,
+                         function: newProcessFunc)
                 #endif // os(OSX)
         }
 

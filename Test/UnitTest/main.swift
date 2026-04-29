@@ -12,12 +12,21 @@ import Cocoa
 
 func test() -> Bool
 {
-        let env = MIEnvironment()
+        let env = MIEnvVariables(parent: nil)
 
         /* setup context */
-        let ctxt = KSContext(virtualMachine: JSVirtualMachine())
+        guard let vm = JSVirtualMachine() else {
+                NSLog("[Error] Failed to allocate VM")
+                return false
+        }
+
         let lib  = KSLibrary()
-        if let err = lib.load(into: ctxt, environment: env) {
+
+        let ctxt: KSContext
+        switch lib.load(virtualMachine: vm, environment: env) {
+        case .success(let _ctxt):
+                ctxt = _ctxt
+        case .failure(let err):
                 NSLog("[Error] \(MIError.errorToString(error: err))")
                 return false
         }
@@ -25,8 +34,8 @@ func test() -> Bool
         let scr0 = "_log(\"hello, world !!\");"
         ctxt.evaluateScript(scr0)
 
-        let scr1 = "env.set(\"a\", 1234) ;\n"
-                 + "_log(env.get(\"a\")) ;\n"
+        let scr1 = "env.setString(\"a\", \"ABCDE\") ;\n"
+                 + "_log(env.getString(\"a\")) ;\n"
         ctxt.evaluateScript(scr1)
 
         return true
