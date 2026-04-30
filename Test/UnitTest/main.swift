@@ -45,6 +45,26 @@ func test() -> Bool
                  + "_log(url0.path) ;"
         ctxt.evaluateScript(scr2)
 
+        let defin  = KSLibrary.BuiltinName.defaultInputFileHandle.rawValue
+        let defout = KSLibrary.BuiltinName.defaultOutputFileHandle.rawValue
+        let deferr = KSLibrary.BuiltinName.defaultErrorFileHandle.rawValue
+
+        let scr3 = "\(defout).write(\"write to default output\\n\");\n"
+        ctxt.evaluateScript(scr3)
+
+        let scr4 = "let p0 = newProcess(); \n"
+                 + "p0.executableURL = newURL(\"/bin/ls\") ; \n"
+                 + "p0.standardInput = \(defin) ;\n"
+                 + "p0.standardOutput = \(defout) ;\n"
+                 + "p0.standardError = \(deferr) ;\n"
+                 + "p0.arguments = [] ;\n"
+                 + "let ecode = p0.run() ;\n"
+                 + "\(defout).write(\"ecode: \" + ecode);\n"
+                 + "p0.wait() ;\n"
+        NSLog("scr4 = \(scr4)")
+        ctxt.evaluateScript(scr4)
+
+        NSLog("done")
         return true
 }
 

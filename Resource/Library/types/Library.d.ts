@@ -48,6 +48,12 @@ declare class Process {
 	get standardError(): FileHandle ;
 	set standardError(hdl: FileHandle) ;
 
+	get executableURL(): URL ;
+	set executableURL(url: URL) ;
+
+	get arguments(): string[] ;
+	set arguments(arg: string[]) ;
+
 	run(): number ;
 	wait(): void ;
 }

@@ -13,6 +13,9 @@ import Foundation
 
 @objc public protocol KSProcessProtocol: JSExport
 {
+        var executableURL: JSValue { get set }
+        var arguments: JSValue { get set }
+
         var standardInput: JSValue { get set }
         var standardOutput: JSValue { get set }
         var standardError: JSValue { get set }
@@ -151,11 +154,7 @@ import Foundation
 
         public func run() -> JSValue {
                 let pid = mProcess.tryRun()
-                if pid >= 0 {
-                        return JSValue(int32: pid, in: mContext)
-                } else {
-                        return JSValue(nullIn: mContext)
-                }
+                return JSValue(int32: pid >= 0 ? pid : -1, in: mContext)
         }
 
         public func wait() {
