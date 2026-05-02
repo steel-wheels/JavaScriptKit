@@ -13,6 +13,9 @@ import Foundation
 {
         func setString(_ name: JSValue, _ value: JSValue)
         func getString(_ name: JSValue) -> JSValue
+
+        func setNumber(_ name: JSValue, _ value: JSValue)
+        func getNumber(_ name: JSValue) -> JSValue
 }
 
 @objc public class KSEnvVariables: NSObject, KSEnvVariablesProtocol
@@ -31,7 +34,7 @@ import Foundation
 
         public func setString(_ keyval: JSValue, _ strval: JSValue) {
                 if let key = keyval.toString(), let str = strval.toString() {
-                        mEnvVariables.set(object: str as NSString, forKey: key)
+                        mEnvVariables.set(string: str, forKey: key)
                 } else {
                         NSLog("[Error] Failed to set value at \(#file)")
                 }
@@ -39,8 +42,27 @@ import Foundation
 
         public func getString(_ keyval: JSValue) -> JSValue {
                 if let key = keyval.toString() {
-                        if let str = mEnvVariables.object(forKey: key) as? NSString {
+                        if let str = mEnvVariables.string(forKey: key) {
                                 return JSValue(object: str, in: mContext)
+                        }
+                } else {
+                        NSLog("[Error] Failed to get value at \(#file)")
+                }
+                return JSValue(nullIn: mContext)
+        }
+
+        public func setNumber(_ keyval: JSValue, _ strval: JSValue) {
+                if let key = keyval.toString(), let num = strval.toNumber() {
+                        mEnvVariables.set(number: num, forKey: key)
+                } else {
+                        NSLog("[Error] Failed to set value at \(#file)")
+                }
+        }
+
+        public func getNumber(_ keyval: JSValue) -> JSValue {
+                if let key = keyval.toString() {
+                        if let num = mEnvVariables.number(forKey: key) {
+                                return JSValue(object: num, in: mContext)
                         }
                 } else {
                         NSLog("[Error] Failed to get value at \(#file)")
