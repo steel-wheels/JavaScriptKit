@@ -12,6 +12,8 @@ import Cocoa
 
 func test() -> Bool
 {
+        var result = true
+
         let env = MIEnvVariables(parent: nil)
 
         /* setup context */
@@ -33,6 +35,8 @@ func test() -> Bool
                 NSLog("[Error] \(MIError.errorToString(error: err))")
                 return false
         }
+
+        result = envTest(environment: env, context: ctxt) && result
 
         let scr0 = "_log(\"hello, world !!\");"
         ctxt.evaluateScript(scr0)
@@ -65,6 +69,39 @@ func test() -> Bool
         ctxt.evaluateScript(scr4)
 
         NSLog("done")
+        return true
+}
+
+private func envTest(environment env: MIEnvVariables, context ctxt: KSContext) -> Bool
+{
+        NSLog("test: environment")
+
+        let envobj = KSEnvVariables(environment: env, context: ctxt)
+
+        let key0str = "KEY0"
+        guard let key0val = JSValue(object: key0str, in: ctxt) else {
+                NSLog("[Error] Failed to allocate key0")
+                return false
+        }
+
+        let str0str = "STR0"
+        guard let str0val = JSValue(object: str0str, in: ctxt) else {
+                NSLog("[Error] Failed to allocate str0")
+                return false
+        }
+
+        envobj.setString(key0val, str0val)
+        let dst0val = envobj.getString(key0val)
+        if let dst0str = dst0val.toString() {
+                if str0str != dst0str {
+                        NSLog("[Error] Unexpected string value \(str0str) != \(dst0str)")
+                        return false
+                }
+        } else {
+                NSLog("[Error] Failed to get string")
+                return false
+        }
+
         return true
 }
 
