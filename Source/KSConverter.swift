@@ -48,6 +48,29 @@ public class KSConverter
                 }
         }
 
+        public static func valueToURL(_ src: JSValue) -> Result<URL, NSError> {
+                if let url = src.toObject() as? KSURL {
+                        return .success(url.core)
+                } else {
+                        let err = MIError.parseError(message: "Number data is expected", line: 0)
+                        return .failure(err)
+                }
+        }
+
+        public static func valueToTextColor(_ src: JSValue) -> Result<MITextColor, NSError> {
+                if let num = src.toNumber() {
+                        if let col = MITextColor(rawValue: num.intValue) {
+                                return .success(col)
+                        }
+                }
+                let err = MIError.parseError(message: "Number data is expected", line: 0)
+                return .failure(err)
+        }
+
+        public static func textColorToValue(_ src: MITextColor, _ ctxt: KSContext) -> JSValue {
+                return JSValue(int32: Int32(src.rawValue), in: ctxt)
+        }
+
         public static func stringArrayToValue(_ src: Array<String>, in ctxt: KSContext) -> JSValue {
                 var arr: Array<NSString> = []
                 for elm in src {

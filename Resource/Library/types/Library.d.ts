@@ -1,9 +1,20 @@
 /**
- * Builtin.d.ts
+ * @file TextColor.ts
  */
-
-declare function _log(message: string): void ;
-
+declare const enum TextColor {
+    black = 0,
+    red = 1,
+    green = 2,
+    yellow = 3,
+    blue = 4,
+    magenta = 5,
+    cyan = 6,
+    white = 7
+}
+/**
+ * @file math.ts
+ */
+declare function abs(val: number): number;
 /**
  * @file Process.d.ts 
  */
@@ -27,7 +38,19 @@ declare class Environment
 	setStrings(name: string, value: string[]): void ;
 
 	getNumber(name: string): number | null ;
-	setSNumber(name: string, value: number): void ;
+	setNumber(name: string, value: number): void ;
+
+	getURL(name: string): URL | null ;
+	setURL(name: string, value: URL): void ;
+
+	getTextColor(name: string): TextColor | null ;
+	setTextColor(name: string, value: TextColor): void ;
+
+	getForegroundTextColor(): TextColor | null ;
+	setForegroundTextColor(value: TextColor): void ;
+
+	getBackgroundTextColor(): TextColor | null ;
+	setBackgroundTextColor(value: TextColor): void ;
 }
 
 declare var env: Environment  ;
@@ -72,7 +95,3 @@ declare function newProcess(): Process ;
 
 declare function isUndefined(obj: unknown): boolean ;
 
-/**
- * @file math.ts
- */
-declare function abs(val: number): number;

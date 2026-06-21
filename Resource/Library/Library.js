@@ -1,5 +1,10 @@
 "use strict";
 /**
+ * @file TextColor.ts
+ */
+;
+"use strict";
+/**
  * @file math.ts
  */
 /// <reference path="types/BuiltinLibrary.d.ts"/>

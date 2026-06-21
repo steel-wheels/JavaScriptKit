@@ -19,6 +19,18 @@ import Foundation
 
         func setNumber(_ name: JSValue, _ value: JSValue)
         func getNumber(_ name: JSValue) -> JSValue
+
+        func setURL(_ name: JSValue, _ value: JSValue)
+        func getURL(_ name: JSValue) -> JSValue
+
+        func setTextColor(_ name: JSValue, _ value: JSValue)
+        func getTextColor(_ name: JSValue) -> JSValue
+
+        func setForegroundTextColor(_ value: JSValue)
+        func getForegroundTextColor() -> JSValue
+
+        func setBackgroundTextColor(_ value: JSValue)
+        func getBackgroundTextColor() -> JSValue
 }
 
 @objc public class KSEnvVariables: NSObject, KSEnvVariablesProtocol
@@ -111,6 +123,85 @@ import Foundation
                         log(error: err)
                 }
                 return JSValue(nullIn: mContext)
+        }
+
+        public func setURL(_ keyval: JSValue, _ urlval: JSValue) {
+                switch KSConverter.valueToString(keyval) {
+                case .success(let keystr):
+                        switch KSConverter.valueToURL(urlval) {
+                        case .success(let valstr):
+                                mEnvVariables.set(url: valstr, forKey: keystr)
+                        case .failure(let err):
+                                log(error: err)
+                        }
+                case .failure(let err):
+                        log(error: err)
+                }
+        }
+
+        public func getURL(_ keyval: JSValue) -> JSValue {
+                switch KSConverter.valueToString(keyval) {
+                case .success(let keystr):
+                        if let url = mEnvVariables.url(forKey: keystr) {
+                                let newobj = KSURL(URL: url, context: mContext)
+                                return JSValue(object: newobj, in: mContext)
+                        }
+                case .failure(let err):
+                        log(error: err)
+                }
+                return JSValue(nullIn: mContext)
+        }
+
+        public func setTextColor(_ keyval: JSValue, _ numval: JSValue) {
+                switch KSConverter.valueToString(keyval) {
+                case .success(let keystr):
+                        setTextColor(key: keystr, numval)
+                case .failure(let err):
+                        log(error: err)
+                }
+        }
+
+        public func setForegroundTextColor(_ value: JSValue) {
+                setTextColor(key: MIEnvVariables.ForegroundColor, value)
+        }
+
+        public func setBackgroundTextColor(_ value: JSValue) {
+                setTextColor(key: MIEnvVariables.BackgroundColor, value)
+        }
+
+        private func setTextColor(key keystr: String, _ numval: JSValue) {
+                switch KSConverter.valueToTextColor(numval) {
+                case .success(let col):
+                        mEnvVariables.set(textColor: col, forKey: keystr)
+                case .failure(let err):
+                        log(error: err)
+                }
+        }
+
+        public func getForegroundTextColor() -> JSValue {
+                return getTextColor(key: MIEnvVariables.ForegroundColor)
+        }
+
+        public func getBackgroundTextColor() -> JSValue {
+                return getTextColor(key: MIEnvVariables.BackgroundColor)
+        }
+
+        public func getTextColor(_ keyval: JSValue) -> JSValue {
+                switch KSConverter.valueToString(keyval) {
+                case .success(let keystr):
+                        return getTextColor(key: keystr)
+                case .failure(let err):
+                        log(error: err)
+                }
+                return JSValue(nullIn: mContext)
+        }
+
+        private func getTextColor(key keystr: String) -> JSValue {
+                if let col = mEnvVariables.textColor(forKey: keystr) {
+                        return KSConverter.textColorToValue(col, mContext)
+                } else {
+                        return JSValue(nullIn: mContext)
+                }
         }
 
         private func log(error err: NSError) {
