@@ -29,6 +29,8 @@ declare function newURL(path: string): URL ;
  * EnvVariables.d.ts
  */
 
+/// <reference path="types/TextColor.d.ts"/>
+
 declare class Environment
 {
 	getString(name: string): string | null ;
