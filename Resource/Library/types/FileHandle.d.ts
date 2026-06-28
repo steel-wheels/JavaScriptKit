@@ -6,3 +6,7 @@ declare class FileHandle {
     write(str: string): void ;
 }
 
+declare var stdin:	FileHandle  ;
+declare var stdout:	FileHandle  ;
+declare var stderr:	FileHandle  ;
+

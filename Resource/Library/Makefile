@@ -5,6 +5,7 @@
 include ../Makefile.inc
 
 srcfiles	= TextColor.ts \
+		  Console.ts \
 		  math.ts
 extdecls	= types/URL.d.ts \
 		  types/EnvVariables.d.ts \

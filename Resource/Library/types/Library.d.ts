@@ -12,6 +12,12 @@ declare const enum TextColor {
     white = 7
 }
 /**
+ * @file Console.ts
+ */
+declare class Console {
+    log(str: string): void;
+}
+/**
  * @file math.ts
  */
 declare function abs(val: number): number;
@@ -64,6 +70,10 @@ declare class FileHandle {
     setReader(func: (str: string) => void): void ;
     write(str: string): void ;
 }
+
+declare var stdin:	FileHandle  ;
+declare var stdout:	FileHandle  ;
+declare var stderr:	FileHandle  ;
 
 /**
  * Process.d.ts
