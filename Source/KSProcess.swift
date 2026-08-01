@@ -20,8 +20,10 @@ import Foundation
         var standardOutput: JSValue { get set }
         var standardError: JSValue { get set }
 
-        func run() -> JSValue
-        func wait()
+        var isRunning: JSValue { get }
+        var exitCode: JSValue { get }
+
+        func start() -> JSValue
 }
 
 @objc public class KSProcess: NSObject, KSProcessProtocol
@@ -29,7 +31,7 @@ import Foundation
         private var mProcess:           Process
         private var mContext:           KSContext
 
-        static public func allocate(context ctxt: KSContext, environment env: MIEnvVariables) -> JSValue{
+        static public func newProcess(context ctxt: KSContext, environment env: MIEnvVariables) -> JSValue{
                 let proccore = Process(environment: env)
                 let newproc  = KSProcess(process: proccore, context: ctxt)
                 return JSValue(object: newproc, in: ctxt)
@@ -152,14 +154,18 @@ import Foundation
                 }
         }
 
-        public func run() -> JSValue {
-                let pid = mProcess.tryRun()
+        public func start() -> JSValue {
+                let pid = mProcess.start()
                 return JSValue(int32: pid >= 0 ? pid : -1, in: mContext)
         }
 
-        public func wait() {
-                mProcess.waitUntilExit()
-        }
+        public var exitCode: JSValue { get {
+                return JSValue(int32: mProcess.terminationStatus, in: mContext)
+        }}
+
+        public var isRunning: JSValue { get {
+                return JSValue(bool: mProcess.isRunning, in: mContext)
+        }}
 }
 
 #endif // os(OSX)

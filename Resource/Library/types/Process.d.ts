@@ -2,6 +2,9 @@
  * Process.d.ts
  */
 
+/// <reference path="URL.d.ts"/>
+/// <reference path="FileHandle.d.ts"/>
+
 declare class Process {
 	get standardInput(): FileHandle ;
 	set standardInput(hdl: FileHandle) ;
@@ -18,8 +21,10 @@ declare class Process {
 	get arguments(): string[] ;
 	set arguments(arg: string[]) ;
 
-	run(): number ;
-	wait(): void ;
+	get isRunning(): boolean ;
+	get exitCode(): number ;
+
+	start(): number ;
 }
 
 declare function newProcess(): Process ;

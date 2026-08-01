@@ -12,8 +12,6 @@ import Cocoa
 
 func test() -> Bool
 {
-        var result = true
-
         let env = MIEnvVariables(parent: nil)
 
         /* setup context */
@@ -22,6 +20,7 @@ func test() -> Bool
                 return false
         }
 
+        /* load library */
         let prochdl = MIProcessFileHandle(input:  FileHandle.standardInput,
                                           output: FileHandle.standardOutput,
                                           error:  FileHandle.standardError)
@@ -36,7 +35,20 @@ func test() -> Bool
                 return false
         }
 
-        result = envTest(environment: env, context: ctxt) && result
+        let result0 = envTest(environment: env, context: ctxt)
+        let result1 = statementTest(environment: env, context: ctxt)
+        let result2 = processTest(environment: env, context: ctxt)
+        let result3 = threadTest(environment: env, context: ctxt)
+
+        let result  = result0 && result1 && result2 && result3
+
+        NSLog("done")
+        return result
+}
+
+private func statementTest(environment env: MIEnvVariables, context ctxt: KSContext) -> Bool
+{
+        NSLog("test: statement")
 
         let scr0 = "_log(\"hello, world !!\");"
         ctxt.evaluateScript(scr0)
@@ -45,30 +57,6 @@ func test() -> Bool
                  + "_log(env.getString(\"a\")) ;\n"
         ctxt.evaluateScript(scr1)
 
-        let scr2 = "let url0 = newURL(\"/bin/ls\") ;\n"
-                 + "_log(url0.path) ;"
-        ctxt.evaluateScript(scr2)
-
-        let defin  = KSLibrary.BuiltinName.defaultInputFileHandle.rawValue
-        let defout = KSLibrary.BuiltinName.defaultOutputFileHandle.rawValue
-        let deferr = KSLibrary.BuiltinName.defaultErrorFileHandle.rawValue
-
-        let scr3 = "\(defout).write(\"write to default output\\n\");\n"
-        ctxt.evaluateScript(scr3)
-
-        let scr4 = "let p0 = newProcess(); \n"
-                 + "p0.executableURL = newURL(\"/bin/ls\") ; \n"
-                 + "p0.standardInput = \(defin) ;\n"
-                 + "p0.standardOutput = \(defout) ;\n"
-                 + "p0.standardError = \(deferr) ;\n"
-                 + "p0.arguments = [] ;\n"
-                 + "let ecode = p0.run() ;\n"
-                 + "\(defout).write(\"ecode: \" + ecode);\n"
-                 + "p0.wait() ;\n"
-        NSLog("scr4 = \(scr4)")
-        ctxt.evaluateScript(scr4)
-
-        NSLog("done")
         return true
 }
 
@@ -101,6 +89,48 @@ private func envTest(environment env: MIEnvVariables, context ctxt: KSContext) -
                 NSLog("[Error] Failed to get string")
                 return false
         }
+
+        return true
+}
+
+private func processTest(environment env: MIEnvVariables, context ctxt: KSContext) -> Bool
+{
+        let defin  = KSLibrary.BuiltinName.defaultInputFileHandle.rawValue
+        let defout = KSLibrary.BuiltinName.defaultOutputFileHandle.rawValue
+        let deferr = KSLibrary.BuiltinName.defaultErrorFileHandle.rawValue
+
+        NSLog("test: process")
+
+        let lines: Array<String> = [
+                "let proc = allocateProcess(\(defin), \(defout), \(deferr)) ;\n",
+                "let exec = newURL(\"/bin/ls\") ;\n",
+                "let pid  = startProcess(proc, exec, []) ;\n",
+                "waitProcess(proc) ;\n"
+        ]
+        let script = lines.joined(separator: "\n")
+
+        ctxt.evaluateScript(script)
+
+        return true
+}
+
+private func threadTest(environment env: MIEnvVariables, context ctxt: KSContext) -> Bool
+{
+        let defin  = KSLibrary.BuiltinName.defaultInputFileHandle.rawValue
+        let defout = KSLibrary.BuiltinName.defaultOutputFileHandle.rawValue
+        let deferr = KSLibrary.BuiltinName.defaultErrorFileHandle.rawValue
+
+        NSLog("test: thread")
+
+        let lines: Array<String> = [
+                "let thd    = allocateThread(\(defin), \(defout), \(deferr)) ;\n",
+                "let script = \"_log(\\\"Message from thread\\\")\" ;\n",
+                "startThread(thd, script) ;\n",
+                "waitThread(thd) ;\n"
+        ]
+        let script = lines.joined(separator: "\n")
+
+        ctxt.evaluateScript(script)
 
         return true
 }

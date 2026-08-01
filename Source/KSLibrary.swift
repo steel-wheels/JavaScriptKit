@@ -17,6 +17,7 @@ open class KSLibrary
                 case defaultErrorFileHandle     = "defaultErrorFileHandle"
                 case env                        = "env"
                 case newProcess                 = "newProcess"
+                case newThread                  = "newThread"
                 case newURL                     = "newURL"
         }
 
@@ -94,11 +95,17 @@ open class KSLibrary
                 /* newProcess */
                 let newProcessFunc: @convention(block) () -> JSValue = {
                         () -> JSValue in
-                        return KSProcess.allocate(context: ctxt, environment: env)
+                        return KSProcess.newProcess(context: ctxt, environment: env)
                 }
-                ctxt.set(name: BuiltinName.newProcess.rawValue,
-                         function: newProcessFunc)
+                ctxt.set(name: BuiltinName.newProcess.rawValue, function: newProcessFunc)
                 #endif // os(OSX)
+
+                /* newThread */
+                let newThreadFunc: @convention(block) () -> JSValue = {
+                        () -> JSValue in
+                        return KSThread.newThread(context: ctxt)
+                }
+                ctxt.set(name: BuiltinName.newThread.rawValue, function: newThreadFunc)
         }
 
         private func loadBuiltinLibrary(into ctxt: KSContext, environment env: MIEnvVariables) -> NSError? {
