@@ -16,26 +16,10 @@ declare function newURL(path: string): URL ;
 
 declare class Environment
 {
-	getString(name: string): string | null ;
-	setString(name: string, value: string): void ;
+	get allKeys(): string[] ;
 
-	getStrings(name: string): string[] | null ;
-	setStrings(name: string, value: string[]): void ;
-
-	getNumber(name: string): number | null ;
-	setNumber(name: string, value: number): void ;
-
-	getURL(name: string): URL | null ;
-	setURL(name: string, value: URL): void ;
-
-	getTextColor(name: string): TextColor | null ;
-	setTextColor(name: string, value: TextColor): void ;
-
-	getForegroundTextColor(): TextColor | null ;
-	setForegroundTextColor(value: TextColor): void ;
-
-	getBackgroundTextColor(): TextColor | null ;
-	setBackgroundTextColor(value: TextColor): void ;
+	get(name: string): string | null ;
+	set(name: string, value: string): void ;
 }
 
 declare var env: Environment  ;
@@ -88,7 +72,8 @@ declare function newProcess(): Process ;
  */
 
 /// <reference path="FileHandle.d.ts"/>
-//
+/// <reference path="URL.d.ts"/>
+
 declare class Thread
 {
 	get standardInput(): FileHandle ;
@@ -102,6 +87,12 @@ declare class Thread
 
         get script(): string ;
         set script(hsrc: string) ;
+
+        get arguments(): string[] | null ;
+        set arguments(args: string[] | null) ;
+
+        get executableURL(): URL | null ;
+        set executableURL(url: URL | null) ;
 
 	get isRunning(): boolean ;
 	get exitCode(): number ;
@@ -140,7 +131,8 @@ declare class Console {
  * @file ThreadFunc.ts
  */
 declare function allocateThread(inf: FileHandle, outf: FileHandle, errf: FileHandle): Thread;
-declare function startThread(thd: Thread, script: string): void;
+declare function startThreadWithScript(thd: Thread, args: string[], script: string): void;
+declare function startThreadWithFile(thd: Thread, args: string[], url: URL): void;
 declare function waitThread(thd: Thread): number;
 /**
  * ProcessFunc.ts

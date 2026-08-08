@@ -3,7 +3,8 @@
  */
 
 /// <reference path="FileHandle.d.ts"/>
-//
+/// <reference path="URL.d.ts"/>
+
 declare class Thread
 {
 	get standardInput(): FileHandle ;
@@ -17,6 +18,12 @@ declare class Thread
 
         get script(): string ;
         set script(hsrc: string) ;
+
+        get arguments(): string[] | null ;
+        set arguments(args: string[] | null) ;
+
+        get executableURL(): URL | null ;
+        set executableURL(url: URL | null) ;
 
 	get isRunning(): boolean ;
 	get exitCode(): number ;

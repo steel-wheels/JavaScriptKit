@@ -10,8 +10,14 @@ function allocateThread(inf, outf, errf) {
     thd.standardError = errf;
     return thd;
 }
-function startThread(thd, script) {
+function startThreadWithScript(thd, args, script) {
     thd.script = script;
+    thd.arguments = args;
+    thd.start();
+}
+function startThreadWithFile(thd, args, url) {
+    thd.executableURL = url;
+    thd.arguments = args;
     thd.start();
 }
 function waitThread(thd) {

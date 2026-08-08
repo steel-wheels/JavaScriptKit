@@ -53,9 +53,13 @@ private func statementTest(environment env: MIEnvVariables, context ctxt: KSCont
         let scr0 = "_log(\"hello, world !!\");"
         ctxt.evaluateScript(scr0)
 
-        let scr1 = "env.setString(\"a\", \"ABCDE\") ;\n"
-                 + "_log(env.getString(\"a\")) ;\n"
+        let scr1 = "env.set(\"a\", \"ABCDE\") ;\n"
+                 + "_log(env.get(\"a\")) ;\n"
         ctxt.evaluateScript(scr1)
+
+        let outname = KSLibrary.BuiltinName.defaultOutputFileHandle.rawValue
+        let scr2 = "\(outname).write(\"output from standard output\\n\") ;"
+        ctxt.evaluateScript(scr2)
 
         return true
 }
@@ -78,8 +82,8 @@ private func envTest(environment env: MIEnvVariables, context ctxt: KSContext) -
                 return false
         }
 
-        envobj.setString(key0val, str0val)
-        let dst0val = envobj.getString(key0val)
+        envobj.set(key0val, str0val)
+        let dst0val = envobj.get(key0val)
         if let dst0str = dst0val.toString() {
                 if str0str != dst0str {
                         NSLog("[Error] Unexpected string value \(str0str) != \(dst0str)")
@@ -125,7 +129,7 @@ private func threadTest(environment env: MIEnvVariables, context ctxt: KSContext
         let lines: Array<String> = [
                 "let thd    = allocateThread(\(defin), \(defout), \(deferr)) ;\n",
                 "let script = \"_log(\\\"Message from thread\\\")\" ;\n",
-                "startThread(thd, script) ;\n",
+                "startThreadWithScript(thd, [], script) ;\n",
                 "waitThread(thd) ;\n"
         ]
         let script = lines.joined(separator: "\n")

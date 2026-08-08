@@ -14,9 +14,18 @@ function allocateThread(inf: FileHandle, outf: FileHandle,
 	return thd ;
 }
 
-function startThread(thd: Thread, script: string): void
+function startThreadWithScript(thd: Thread, args: string[],
+			       script: string): void
 {
-	thd.script = script ;
+	thd.script    = script ;
+	thd.arguments = args ;
+	thd.start() ;
+}
+
+function startThreadWithFile(thd: Thread, args: string[], url: URL): void
+{
+	thd.executableURL  = url ;
+	thd.arguments	   = args ;
 	thd.start() ;
 }
 

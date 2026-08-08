@@ -25,12 +25,42 @@ public class KSScriptThread: MIFileThread
         }
 
         open override func main() {
-                if !mScript.isEmpty {
-                        mContext.evaluateScript(mScript)
+                let ecode: Int32
+                if let url = self.executableURL {
+                        switch url.loadText() {
+                        case .success(let scr):
+                                ecode = execScript(script: scr)
+                        case .failure(let err):
+                                error(string: MIError.errorToString(error: err))
+                                ecode = -1
+                        }
+                } else if !mScript.isEmpty {
+                        ecode = execScript(script: mScript)
                 } else {
                         error(string: "[Error] No script to execute\n")
-                        self.exitCode = -1
+                        ecode = -1
                 }
+                self.exitCode = ecode
+        }
+
+        private func execScript(script scr: String) -> Int32 {
+                var result: Int32 = 0
+                mContext.evaluateScript(scr)
+                if let mainfunc = mContext.get(name: "main") {
+                        /* allocate arguments value */
+                        var args: Array<NSObject> = []
+                        for arg in self.arguments {
+                                args.append(arg as NSString)
+                        }
+                        /* Call main function */
+                        if let retval = mainfunc.call(withArguments: args) {
+                                result = retval.toInt32()
+                        } else {
+                                error(string: "Failed to call main function\n")
+                                result = -1
+                        }
+                }
+                return result
         }
 }
 
@@ -39,7 +69,11 @@ public class KSScriptThread: MIFileThread
         var standardInput:  JSValue { get set }
         var standardOutput: JSValue { get set }
         var standardError:  JSValue { get set }
+
+        var arguments:      JSValue { get set }
+
         var script:         JSValue { get set }
+        var executableURL:  JSValue { get set }
 
         var isRunning: JSValue { get }
         var exitCode: JSValue { get }
@@ -76,6 +110,51 @@ public class KSScriptThread: MIFileThread
         public var standardError:  JSValue {
                 get     { return fileHandleToValue(mThread.standardError) }
                 set(val){ mThread.standardError = valueToFileHandle(val)  }
+        }
+
+        public var arguments: JSValue {
+                get {
+                        let arr = NSMutableArray(capacity: 8)
+                        for arg in mThread.arguments {
+                                arr.add(arg as NSString)
+                        }
+                        return JSValue(object: arr, in: mContext)
+                }
+                set(args){
+                        if let arr = args.toArray() {
+                                var result: Array<String> = []
+                                for obj in arr {
+                                        if let str = obj as? String {
+                                                result.append(str)
+                                        } else {
+                                                NSLog("[Error] Invalid array element")
+                                        }
+                                }
+                                mThread.arguments = result
+                        } else {
+                                NSLog("[Error] Array parameter required")
+                        }
+                }
+        }
+
+        public var executableURL:  JSValue {
+                get {
+                        if let url = mThread.executableURL {
+                                let obj = KSURL(URL: url, context: mContext)
+                                return JSValue(object: obj, in: mContext)
+                        } else {
+                                return JSValue(nullIn: mContext)
+                        }
+                }
+                set(val) {
+                        if let url = val.toObject() as? KSURL {
+                                mThread.executableURL = url.core
+                        } else if val.isNull {
+                                mThread.executableURL = nil
+                        } else {
+                                NSLog("[Error] URL parameter required")
+                        }
+                }
         }
 
         public var script: JSValue {
