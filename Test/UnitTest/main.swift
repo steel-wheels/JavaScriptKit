@@ -57,7 +57,7 @@ private func statementTest(environment env: MIEnvVariables, context ctxt: KSCont
                  + "_log(env.get(\"a\")) ;\n"
         ctxt.evaluateScript(scr1)
 
-        let outname = KSLibrary.BuiltinName.defaultOutputFileHandle.rawValue
+        let outname = KSLibrary.BuiltinName.standardOutputFileHandle.rawValue
         let scr2 = "\(outname).write(\"output from standard output\\n\") ;"
         ctxt.evaluateScript(scr2)
 
@@ -99,9 +99,9 @@ private func envTest(environment env: MIEnvVariables, context ctxt: KSContext) -
 
 private func processTest(environment env: MIEnvVariables, context ctxt: KSContext) -> Bool
 {
-        let defin  = KSLibrary.BuiltinName.defaultInputFileHandle.rawValue
-        let defout = KSLibrary.BuiltinName.defaultOutputFileHandle.rawValue
-        let deferr = KSLibrary.BuiltinName.defaultErrorFileHandle.rawValue
+        let defin  = KSLibrary.BuiltinName.standardInputFileHandle.rawValue
+        let defout = KSLibrary.BuiltinName.standardOutputFileHandle.rawValue
+        let deferr = KSLibrary.BuiltinName.standardErrorFileHandle.rawValue
 
         NSLog("test: process")
 
@@ -120,9 +120,9 @@ private func processTest(environment env: MIEnvVariables, context ctxt: KSContex
 
 private func threadTest(environment env: MIEnvVariables, context ctxt: KSContext) -> Bool
 {
-        let defin  = KSLibrary.BuiltinName.defaultInputFileHandle.rawValue
-        let defout = KSLibrary.BuiltinName.defaultOutputFileHandle.rawValue
-        let deferr = KSLibrary.BuiltinName.defaultErrorFileHandle.rawValue
+        let defin  = KSLibrary.BuiltinName.standardInputFileHandle.rawValue
+        let defout = KSLibrary.BuiltinName.standardOutputFileHandle.rawValue
+        let deferr = KSLibrary.BuiltinName.standardErrorFileHandle.rawValue
 
         NSLog("test: thread")
 

@@ -12,9 +12,9 @@ import Foundation
 open class KSLibrary
 {
         public enum BuiltinName: String {
-                case defaultInputFileHandle     = "defaultInputFileHandle"
-                case defaultOutputFileHandle    = "defaultOutputFileHandle"
-                case defaultErrorFileHandle     = "defaultErrorFileHandle"
+                case standardInputFileHandle    = "standardInputFileHandle"
+                case standardOutputFileHandle   = "standardOutputFileHandle"
+                case standardErrorFileHandle    = "standardErrorFileHandle"
                 case env                        = "env"
                 case newProcess                 = "newProcess"
                 case newThread                  = "newThread"
@@ -46,19 +46,19 @@ open class KSLibrary
                 ctxt.set(name: BuiltinName.env.rawValue,
                          value: JSValue(object: envobj, in: ctxt))
 
-                /* defaultInputFileHandle  */
+                /* dstandardInputFileHandle  */
                 let inobj = KSFileHandle(fileHandle: prochdl.inputFileHandle, context: ctxt)
-                ctxt.set(name: BuiltinName.defaultInputFileHandle.rawValue,
+                ctxt.set(name: BuiltinName.standardInputFileHandle.rawValue,
                          value: JSValue(object: inobj, in: ctxt))
 
-                /* defaultOutputFileHandle  */
+                /* standardOutputFileHandle  */
                 let outobj = KSFileHandle(fileHandle: prochdl.outputFileHandle, context: ctxt)
-                ctxt.set(name: BuiltinName.defaultOutputFileHandle.rawValue,
+                ctxt.set(name: BuiltinName.standardOutputFileHandle.rawValue,
                          value: JSValue(object: outobj, in: ctxt))
 
-                /* defaultErrorFileHandle  */
+                /* standardErrorFileHandle  */
                 let errobj = KSFileHandle(fileHandle: prochdl.errorFilehandle, context: ctxt)
-                ctxt.set(name: BuiltinName.defaultErrorFileHandle.rawValue,
+                ctxt.set(name: BuiltinName.standardErrorFileHandle.rawValue,
                          value: JSValue(object: errobj, in: ctxt))
         }
 
