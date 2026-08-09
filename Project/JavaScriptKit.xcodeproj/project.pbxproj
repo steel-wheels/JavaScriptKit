@@ -7,8 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		05263ADE3027EB580049A440 /* SetupLibrary.js in CopyFiles */ = {isa = PBXBuildFile; fileRef = 05263ADD3027EB430049A440 /* SetupLibrary.js */; };
-		05263ADF3027EB5F0049A440 /* SetupLibrary.js in CopyFiles */ = {isa = PBXBuildFile; fileRef = 05263ADD3027EB430049A440 /* SetupLibrary.js */; };
 		052A388A2FA874880078AD7B /* KSConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 052A38892FA874880078AD7B /* KSConverter.swift */; };
 		052A388B2FA874880078AD7B /* KSConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 052A38892FA874880078AD7B /* KSConverter.swift */; };
 		0562DF65300DACE000A637C9 /* KSThread.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0562DF64300DACE000A637C9 /* KSThread.swift */; };
@@ -71,7 +69,6 @@
 			dstPath = Library;
 			dstSubfolderSpec = 7;
 			files = (
-				05263ADF3027EB5F0049A440 /* SetupLibrary.js in CopyFiles */,
 				05D3C8972F6FF4FD00FF6DF4 /* Library.js in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -82,7 +79,6 @@
 			dstPath = Library;
 			dstSubfolderSpec = 7;
 			files = (
-				05263ADE3027EB580049A440 /* SetupLibrary.js in CopyFiles */,
 				05D3C8992F6FF52300FF6DF4 /* Library.js in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -141,7 +137,6 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		05263ADD3027EB430049A440 /* SetupLibrary.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = SetupLibrary.js; sourceTree = "<group>"; };
 		052A38892FA874880078AD7B /* KSConverter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KSConverter.swift; sourceTree = "<group>"; };
 		0562DF64300DACE000A637C9 /* KSThread.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KSThread.swift; sourceTree = "<group>"; };
 		058FC83D2F78B00400E1A123 /* KSEnvVariables.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KSEnvVariables.swift; sourceTree = "<group>"; };
@@ -265,7 +260,6 @@
 			children = (
 				05F9EF272F05672700D72B9F /* types */,
 				05D3C8932F6FF48200FF6DF4 /* Library.js */,
-				05263ADD3027EB430049A440 /* SetupLibrary.js */,
 			);
 			path = Library;
 			sourceTree = "<group>";

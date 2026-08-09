@@ -103,8 +103,7 @@ open class KSLibrary
                         return err
                 }
                 let libfiles: Array<URL> = [
-                        dir.appendingPathComponent("Library/Library.js"),
-                        dir.appendingPathComponent("Library/SetupLibrary.js")
+                        dir.appendingPathComponent("Library/Library.js")
                 ]
                 for libfile in libfiles {
                         if let err = load(into: ctxt, sourceFile: libfile) {

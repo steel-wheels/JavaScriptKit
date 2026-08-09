@@ -8,3 +8,4 @@ class Console {
         standardOutputFileHandle.write(str);
     }
 }
+var console = new Console();
