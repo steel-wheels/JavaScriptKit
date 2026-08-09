@@ -7,6 +7,6 @@
 class Console
 {
         log(str: string): void {
-                stdout.write(str) ;
+                standardOutputFileHandle.write(str) ;
         }
 }

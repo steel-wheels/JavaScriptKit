@@ -50,16 +50,16 @@ private func statementTest(environment env: MIEnvVariables, context ctxt: KSCont
 {
         NSLog("test: statement")
 
-        let scr0 = "_log(\"hello, world !!\");"
-        ctxt.evaluateScript(scr0)
-
-        let scr1 = "env.set(\"a\", \"ABCDE\") ;\n"
-                 + "_log(env.get(\"a\")) ;\n"
-        ctxt.evaluateScript(scr1)
-
         let outname = KSLibrary.BuiltinName.standardOutputFileHandle.rawValue
         let scr2 = "\(outname).write(\"output from standard output\\n\") ;"
         ctxt.evaluateScript(scr2)
+
+        let scr3 = "console.log(\"output from console.log\\n\") ;"
+        ctxt.evaluateScript(scr3)
+
+        let scr1 = "env.set(\"a\", \"ABCDE\") ;\n"
+                 + "console.log(env.get(\"a\")) ;\n"
+        ctxt.evaluateScript(scr1)
 
         return true
 }
@@ -128,7 +128,7 @@ private func threadTest(environment env: MIEnvVariables, context ctxt: KSContext
 
         let lines: Array<String> = [
                 "let thd    = allocateThread(\(defin), \(defout), \(deferr)) ;\n",
-                "let script = \"_log(\\\"Message from thread\\\")\" ;\n",
+                "let script = \"console.log(\\\"Message from thread\\\")\" ;\n",
                 "startThreadWithScript(thd, [], script) ;\n",
                 "waitThread(thd) ;\n"
         ]

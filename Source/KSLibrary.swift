@@ -63,17 +63,6 @@ open class KSLibrary
         }
 
         private func defineBuiltinFunctions(into ctxt: KSContext, environment env: MIEnvVariables) {
-                /* define: _log */
-                let logFunc: @convention(block) (_ value: JSValue) -> Void = {
-                        (_ value: JSValue) -> Void in
-                        if let msg = value.toString() {
-                                NSLog(msg)
-                        } else {
-                                NSLog("Unexpected object: \(String(describing: value.toObject()))")
-                        }
-                }
-                ctxt.set(name: "_log", function: logFunc)
-
                 /* define: isUndefined */
                 let isUndefinedFunc: @convention(block) (_ value: JSValue) -> JSValue = {
                         (_ value: JSValue) -> JSValue in
@@ -113,8 +102,16 @@ open class KSLibrary
                         let err = MIError.error(errorCode: .fileError, message: "No resource directory")
                         return err
                 }
-                let libfile = dir.appendingPathComponent("Library/Library.js")
-                return load(into: ctxt, sourceFile: libfile)
+                let libfiles: Array<URL> = [
+                        dir.appendingPathComponent("Library/Library.js"),
+                        dir.appendingPathComponent("Library/SetupLibrary.js")
+                ]
+                for libfile in libfiles {
+                        if let err = load(into: ctxt, sourceFile: libfile) {
+                                return err
+                        }
+                }
+                return nil
         }
 
         public func load(into context: KSContext,  sourceFile src: URL) -> NSError? {
