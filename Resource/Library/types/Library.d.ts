@@ -4,6 +4,7 @@
 
 declare class URL {
 	get path() : string ;
+	appendingPathComponent(subpath: string): URL ;
 }
 
 declare function newURL(path: string): URL ;
@@ -32,7 +33,7 @@ declare var env: Environment  ;
 
 declare class FileManager
 {
-	isExist(url: URL): hoolean ;
+	isExist(url: URL): boolean ;
 	isExecutable(url: URL): boolean ;
 }
 

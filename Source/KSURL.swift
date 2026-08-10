@@ -12,6 +12,8 @@ import Foundation
 @objc public protocol KSURLProtocol: JSExport
 {
         var path: JSValue { get }
+
+        func appendingPathComponent(subpath: JSValue) -> JSValue
 }
 
 @objc public class KSURL: NSObject, KSURLProtocol
@@ -46,5 +48,20 @@ import Foundation
                 let str = mURL.path(percentEncoded: true)
                 return JSValue(object: str, in: mContext)
         }}
+
+        public func appendingPathComponent(subpath: JSValue) -> JSValue {
+                if let str = subpath.toString() {
+                        let newurl = mURL.appendingPathComponent(str)
+                        return urlToValue(url: newurl)
+                } else {
+                        NSLog("[Error] String parameter is required")
+                        return urlToValue(url: URL(filePath: "/dev/null"))
+                }
+        }
+
+        private func urlToValue(url: URL) -> JSValue {
+                let obj = KSURL(URL: url, context: mContext)
+                return JSValue(object: obj, in: mContext)
+        }
 }
 

@@ -6,7 +6,7 @@
 
 declare class FileManager
 {
-	isExist(url: URL): hoolean ;
+	isExist(url: URL): boolean ;
 	isExecutable(url: URL): boolean ;
 }
 
