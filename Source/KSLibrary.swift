@@ -15,6 +15,7 @@ open class KSLibrary
                 case standardInputFileHandle    = "standardInputFileHandle"
                 case standardOutputFileHandle   = "standardOutputFileHandle"
                 case standardErrorFileHandle    = "standardErrorFileHandle"
+                case fileManager                = "fileManager"
                 case env                        = "env"
                 case newProcess                 = "newProcess"
                 case newThread                  = "newThread"
@@ -60,6 +61,11 @@ open class KSLibrary
                 let errobj = KSFileHandle(fileHandle: prochdl.errorFilehandle, context: ctxt)
                 ctxt.set(name: BuiltinName.standardErrorFileHandle.rawValue,
                          value: JSValue(object: errobj, in: ctxt))
+
+                /* fileManager */
+                let fmobj = KSFileManager(context: ctxt)
+                ctxt.set(name: BuiltinName.fileManager.rawValue,
+                         value: JSValue(object: fmobj, in: ctxt))
         }
 
         private func defineBuiltinFunctions(into ctxt: KSContext, environment env: MIEnvVariables) {

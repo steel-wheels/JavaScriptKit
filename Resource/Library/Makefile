@@ -11,6 +11,7 @@ srcfiles	= TextColor.ts \
 		  math.ts
 extdecls	= types/URL.d.ts \
 		  types/EnvVariables.d.ts \
+		  types/FileManager.d.ts \
 		  types/FileHandle.d.ts \
 		  types/Process.d.ts \
 		  types/Thread.d.ts \
