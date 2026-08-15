@@ -48,12 +48,12 @@ public class KSScriptThread: MIFileThread
                 mContext.evaluateScript(scr)
                 if let mainfunc = mContext.get(name: "main") {
                         /* allocate arguments value */
-                        var args: Array<NSObject> = []
+                        var args: Array<JSValue> = []
                         for arg in self.arguments {
-                                args.append(arg as NSString)
+                                args.append(JSValue(object: arg as NSString, in: mContext))
                         }
                         /* Call main function */
-                        if let retval = mainfunc.call(withArguments: args) {
+                        if let retval = mainfunc.call(withArguments: [args]) {
                                 result = retval.toInt32()
                         } else {
                                 error(string: "Failed to call main function\n")
