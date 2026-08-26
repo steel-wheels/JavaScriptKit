@@ -4,6 +4,7 @@
 
 declare class URL {
 	get path() : string ;
+	appendingPathComponent(subpath: string): URL ;
 }
 
 declare function newURL(path: string): URL ;
@@ -25,6 +26,20 @@ declare class Environment
 declare var env: Environment  ;
 
 /**
+ * FileManager.d.ts
+ */
+
+/// <reference path="types/URL.d.ts"/>
+
+declare class FileManager
+{
+	isExist(url: URL): boolean ;
+	isExecutable(url: URL): boolean ;
+}
+
+declare var fileManager: FileManager  ;
+
+/**
  * @file FileHandle.d.ts
  */
 declare class FileHandle {
@@ -32,9 +47,9 @@ declare class FileHandle {
     write(str: string): void ;
 }
 
-declare var stdin:	FileHandle  ;
-declare var stdout:	FileHandle  ;
-declare var stderr:	FileHandle  ;
+declare var standardInputFileHandle:	FileHandle  ;
+declare var standardOutputFileHandle:	FileHandle  ;
+declare var standardErrorFileHandle:	FileHandle  ;
 
 /**
  * Process.d.ts
@@ -103,6 +118,27 @@ declare class Thread
 declare function newThread(): Thread ;
 
 /**
+ * PanelCore.d.ts
+ */
+
+/// <reference path="URL.d.ts"/>
+
+declare class OpenPanelCore {
+	get selected():	   boolean ;
+	get selectedURL(): URL | null ;
+	show(title: string, type: number, extensions: string[]) : boolean ;
+}
+
+declare class SavePanelCore {
+	get selected():	   boolean ;
+	get selectedURL(): URL | null ;
+	show(title: string, outdir: URL): boolean ;
+}
+
+declare function newOpenPanelCore(): OpenPanelCore ;
+declare function newSavePanelCore(): SavePanelCore ;
+
+/**
  * isUndefined.d.ts
  */
 
@@ -127,6 +163,7 @@ declare const enum TextColor {
 declare class Console {
     log(str: string): void;
 }
+declare var console: Console;
 /**
  * @file ThreadFunc.ts
  */

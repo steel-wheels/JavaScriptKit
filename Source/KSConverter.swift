@@ -48,6 +48,15 @@ public class KSConverter
                 }
         }
 
+        public static func valueToInt32(_ src: JSValue) -> Result<Int, NSError> {
+                switch valueToNumber(src) {
+                case .success(let num):
+                        return .success(num.intValue)
+                case .failure(let err):
+                        return .failure(err)
+                }
+        }
+
         public static func valueToURL(_ src: JSValue) -> Result<URL, NSError> {
                 if let url = src.toObject() as? KSURL {
                         return .success(url.core)

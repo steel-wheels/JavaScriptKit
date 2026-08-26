@@ -9,6 +9,12 @@
 /* Begin PBXBuildFile section */
 		052A388A2FA874880078AD7B /* KSConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 052A38892FA874880078AD7B /* KSConverter.swift */; };
 		052A388B2FA874880078AD7B /* KSConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 052A38892FA874880078AD7B /* KSConverter.swift */; };
+		053A5FAE303B2A1C00DACB7C /* MultiUIKit.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 053A5FAD303B2A1C00DACB7C /* MultiUIKit.xcframework */; };
+		053A5FAF303B2A1C00DACB7C /* MultiUIKit.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 053A5FAD303B2A1C00DACB7C /* MultiUIKit.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		053A5FB0303B2A3600DACB7C /* MultiUIKit.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 053A5FAD303B2A1C00DACB7C /* MultiUIKit.xcframework */; };
+		053A5FB1303B2A3600DACB7C /* MultiUIKit.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 053A5FAD303B2A1C00DACB7C /* MultiUIKit.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		053A5FB3303B2A9300DACB7C /* KSPanel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 053A5FB2303B2A9300DACB7C /* KSPanel.swift */; };
+		053A5FB4303B2A9300DACB7C /* KSPanel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 053A5FB2303B2A9300DACB7C /* KSPanel.swift */; };
 		0562DF65300DACE000A637C9 /* KSThread.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0562DF64300DACE000A637C9 /* KSThread.swift */; };
 		0562DF66300DACE000A637C9 /* KSThread.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0562DF64300DACE000A637C9 /* KSThread.swift */; };
 		058FC83E2F78B00400E1A123 /* KSEnvVariables.swift in Sources */ = {isa = PBXBuildFile; fileRef = 058FC83D2F78B00400E1A123 /* KSEnvVariables.swift */; };
@@ -118,6 +124,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				053A5FAF303B2A1C00DACB7C /* MultiUIKit.xcframework in Embed Frameworks */,
 				05FCA0B72F038C1C00F99C47 /* MultiDataKit.xcframework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
@@ -129,6 +136,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				053A5FB1303B2A3600DACB7C /* MultiUIKit.xcframework in Embed Frameworks */,
 				05FCA0BA2F038C2F00F99C47 /* MultiDataKit.xcframework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
@@ -138,6 +146,8 @@
 
 /* Begin PBXFileReference section */
 		052A38892FA874880078AD7B /* KSConverter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KSConverter.swift; sourceTree = "<group>"; };
+		053A5FAD303B2A1C00DACB7C /* MultiUIKit.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = MultiUIKit.xcframework; path = ../../../Library/Frameworks/MultiUIKit.xcframework; sourceTree = "<group>"; };
+		053A5FB2303B2A9300DACB7C /* KSPanel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KSPanel.swift; sourceTree = "<group>"; };
 		0562DF64300DACE000A637C9 /* KSThread.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KSThread.swift; sourceTree = "<group>"; };
 		058FC83D2F78B00400E1A123 /* KSEnvVariables.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KSEnvVariables.swift; sourceTree = "<group>"; };
 		059EB1B22F034EAA00826024 /* JavaScriptKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = JavaScriptKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -175,6 +185,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				053A5FAE303B2A1C00DACB7C /* MultiUIKit.xcframework in Frameworks */,
 				05FCA0B62F038C1C00F99C47 /* MultiDataKit.xcframework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -190,6 +201,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				053A5FB0303B2A3600DACB7C /* MultiUIKit.xcframework in Frameworks */,
 				05FCA0B92F038C2F00F99C47 /* MultiDataKit.xcframework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -237,6 +249,7 @@
 				058FC83D2F78B00400E1A123 /* KSEnvVariables.swift */,
 				05D3C8B22F72C32500FF6DF4 /* KSFileHandle.swift */,
 				05F9EF602F06744A00D72B9F /* KSFileManager.swift */,
+				053A5FB2303B2A9300DACB7C /* KSPanel.swift */,
 				05D3C8BB2F757E7E00FF6DF4 /* KSProcess.swift */,
 				0562DF64300DACE000A637C9 /* KSThread.swift */,
 				05D3C8B82F756AD100FF6DF4 /* KSURL.swift */,
@@ -284,6 +297,7 @@
 		05FCA0B42F038C1C00F99C47 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				053A5FAD303B2A1C00DACB7C /* MultiUIKit.xcframework */,
 				05F9EFB12F06980700D72B9F /* JavaScriptKit.xcframework */,
 				05FCA0B52F038C1C00F99C47 /* MultiDataKit.xcframework */,
 			);
@@ -497,6 +511,7 @@
 				05BBE8F52F034F2C006AF77B /* KSContext.swift in Sources */,
 				05D3C8B42F72C32500FF6DF4 /* KSFileHandle.swift in Sources */,
 				05F9EF642F06767900D72B9F /* KSLibrary.swift in Sources */,
+				053A5FB3303B2A9300DACB7C /* KSPanel.swift in Sources */,
 				05E717762F03BB4A0097516E /* KSValue.swift in Sources */,
 				05F9EF612F06744A00D72B9F /* KSFileManager.swift in Sources */,
 				058FC83E2F78B00400E1A123 /* KSEnvVariables.swift in Sources */,
@@ -527,6 +542,7 @@
 				0562DF66300DACE000A637C9 /* KSThread.swift in Sources */,
 				05D3C8B32F72C32500FF6DF4 /* KSFileHandle.swift in Sources */,
 				058FC83F2F78B00400E1A123 /* KSEnvVariables.swift in Sources */,
+				053A5FB4303B2A9300DACB7C /* KSPanel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

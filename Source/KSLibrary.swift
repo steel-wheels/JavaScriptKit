@@ -17,7 +17,9 @@ open class KSLibrary
                 case standardErrorFileHandle    = "standardErrorFileHandle"
                 case fileManager                = "fileManager"
                 case env                        = "env"
+                case newOpenPanel               = "newOpenPanel"
                 case newProcess                 = "newProcess"
+                case newSavePanel               = "newSavePanel"
                 case newThread                  = "newThread"
                 case newURL                     = "newURL"
         }
@@ -93,6 +95,21 @@ open class KSLibrary
                         return KSProcess.newProcess(context: ctxt, environment: env)
                 }
                 ctxt.set(name: BuiltinName.newProcess.rawValue, function: newProcessFunc)
+
+                /* newOpenPanel */
+                let newOpenPanelFunc: @convention(block) () -> JSValue = {
+                        () -> JSValue in
+                        return KSOpenPanel.allocate(context: ctxt)
+                }
+                ctxt.set(name: BuiltinName.newOpenPanel.rawValue, function: newOpenPanelFunc)
+
+                /* newSavePanel */
+                let newSavePanelFunc: @convention(block) () -> JSValue = {
+                        () -> JSValue in
+                        return KSSavePanel.allocate(context: ctxt)
+                }
+                ctxt.set(name: BuiltinName.newSavePanel.rawValue, function: newSavePanelFunc)
+
                 #endif // os(OSX)
 
                 /* newThread */

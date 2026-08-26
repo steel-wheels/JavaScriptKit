@@ -15,6 +15,7 @@ extdecls	= types/URL.d.ts \
 		  types/FileHandle.d.ts \
 		  types/Process.d.ts \
 		  types/Thread.d.ts \
+		  types/PanelCore.d.ts \
 		  types/isUndefined.d.ts
 dstfiles	= $(srcfiles:.ts=.js)
 srcdecls	= $(srcfiles:.ts=.d.ts)
