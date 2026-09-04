@@ -22,6 +22,7 @@ open class KSLibrary
                 case newSavePanel               = "newSavePanel"
                 case newThread                  = "newThread"
                 case newURL                     = "newURL"
+                case newValue                   = "newValue"
         }
 
         public init() {
@@ -87,6 +88,13 @@ open class KSLibrary
                         return KSURL.allocate(pathval, context: ctxt)
                 }
                 ctxt.set(name: BuiltinName.newURL.rawValue, function: allocateURLFunc)
+
+                /* newValue */
+                let allocateValueFunc: @convention(block) (_ pathval: JSValue) -> JSValue = {
+                        (_ pathval: JSValue) -> JSValue in
+                        return KSValue.allocate(context: ctxt)
+                }
+                ctxt.set(name: BuiltinName.newValue.rawValue, function: allocateValueFunc)
 
                 #if os(OSX)
                 /* newProcess */

@@ -8,8 +8,10 @@ srcfiles	= TextColor.ts \
 		  Console.ts \
 		  ThreadFunc.ts \
 		  ProcessFunc.ts \
+		  FileSelector.ts \
 		  math.ts
 extdecls	= types/URL.d.ts \
+		  types/Value.d.ts \
 		  types/EnvVariables.d.ts \
 		  types/FileManager.d.ts \
 		  types/FileHandle.d.ts \

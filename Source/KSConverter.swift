@@ -48,6 +48,15 @@ public class KSConverter
                 }
         }
 
+        public static func valueToBoolean(_ src: JSValue) -> Result<Bool, NSError> {
+                switch valueToNumber(src) {
+                case .success(let num):
+                        return .success(num.boolValue)
+                case .failure(let err):
+                        return .failure(err)
+                }
+        }
+
         public static func valueToInt32(_ src: JSValue) -> Result<Int, NSError> {
                 switch valueToNumber(src) {
                 case .success(let num):
@@ -74,6 +83,21 @@ public class KSConverter
                 }
                 let err = MIError.parseError(message: "Number data is expected", line: 0)
                 return .failure(err)
+        }
+
+        public static func nativeValueToValue(_ src: MIValue, in ctxt: KSContext) -> JSValue {
+                let obj = src.toObject()
+                return JSValue(object: obj, in: ctxt)
+        }
+
+        public static func valueToNativeValue(_ src: JSValue) -> Result<MIValue, NSError> {
+                if let obj = src.toObject() as? NSObject {
+                        let result = MIValue.fromObject(object: obj)
+                        return .success(result)
+                } else {
+                        let err = MIError.parseError(message: "Object is expected", line: 0)
+                        return .failure(err)
+                }
         }
 
         public static func textColorToValue(_ src: MITextColor, _ ctxt: KSContext) -> JSValue {
